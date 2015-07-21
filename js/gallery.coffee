@@ -15,7 +15,7 @@ class Gallery
       @lightbox = document.createElement "div"
       @lightbox.setAttribute "id", "lightbox"
       @lightbox.innerHTML = """
-      <a href="#" id="lightbox-close">X</a>
+      <a href="#" id="lightbox-close"></a>
       <div id="lightbox-navigation">
         <a href="#"></a>
         <a href="#"></a>

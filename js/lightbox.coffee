@@ -20,7 +20,7 @@ class @Lightbox
       @lightbox = document.createElement "div"
       @lightbox.setAttribute "id", "lightbox"
       @lightbox.innerHTML = """
-      <a href="#" id="lightbox-close">X</a>
+      <a href="#" id="lightbox-close"></a>
       <main id="lightbox-main">
         <div id="lightbox-navigation">
           <a href="#" id="lightbox-prev"></a>
@@ -34,6 +34,13 @@ class @Lightbox
     @lightbox.addEventListener 'click', (event) =>
       console.log event
       @close(true) if event.target == @lightbox
+
+    @hammer = new Hammer(@lightbox)
+    @hammer.on 'swipeleft', (event) =>
+      @prev()
+    @hammer.on 'swiperight', (event) =>
+      @next()
+
     @main = document.getElementById 'lightbox-main'
     @img = @main.getElementsByTagName('img')[0]
     @$previous = document.getElementById 'lightbox-prev'

@@ -251,7 +251,7 @@
         console.log('creating html element');
         this.lightbox = document.createElement("div");
         this.lightbox.setAttribute("id", "lightbox");
-        this.lightbox.innerHTML = "<a href=\"#\" id=\"lightbox-close\">X</a>\n<main id=\"lightbox-main\">\n  <div id=\"lightbox-navigation\">\n    <a href=\"#\" id=\"lightbox-prev\"></a>\n    <a href=\"#\" id=\"lightbox-next\"></a>\n  </div>\n  <img />\n</main>";
+        this.lightbox.innerHTML = "<a href=\"#\" id=\"lightbox-close\"></a>\n<main id=\"lightbox-main\">\n  <div id=\"lightbox-navigation\">\n    <a href=\"#\" id=\"lightbox-prev\"></a>\n    <a href=\"#\" id=\"lightbox-next\"></a>\n  </div>\n  <img />\n</main>";
         document.body.appendChild(this.lightbox);
       }
       this.lightbox.addEventListener('click', (function(_this) {
@@ -260,6 +260,17 @@
           if (event.target === _this.lightbox) {
             return _this.close(true);
           }
+        };
+      })(this));
+      this.hammer = new Hammer(this.lightbox);
+      this.hammer.on('swipeleft', (function(_this) {
+        return function(event) {
+          return _this.prev();
+        };
+      })(this));
+      this.hammer.on('swiperight', (function(_this) {
+        return function(event) {
+          return _this.next();
         };
       })(this));
       this.main = document.getElementById('lightbox-main');
