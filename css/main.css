@@ -236,6 +236,9 @@ html, body, button {
   @media print {
     html, body, button {
       font-size: 11.2pt; } }
+  @media screen and (max-width: 600px) {
+    html, body, button {
+      font-size: 11.2pt; } }
 
 body {
   color: #442;
@@ -396,7 +399,9 @@ img + p {
 
 body > main, body > aside, .page-event > article > *, #bildergalerie h2 {
   max-width: 40rem;
-  margin: auto; }
+  margin: auto;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem; }
 
 body > main.page-index, body > aside.page-index {
   max-width: 44rem; }
@@ -443,14 +448,14 @@ body > header {
   border-top: 1px solid #e8e8e8;
   text-align: center;
   color: #886;
-  padding: 1.5rem; }
+  padding: 0.75rem; }
   .site-footer, .site-footer button {
     font-size: .75rem; }
   .site-footer > .footer-main {
     background: url(/img/symbol.svg);
     background-repeat: no-repeat;
     background-position: center;
-    padding: 0.75rem; }
+    background-size: contain; }
   .site-footer > aside {
     max-width: 40rem;
     margin: 0.75rem auto; }
@@ -476,6 +481,9 @@ body > header {
         opacity: 1; }
       #veranstalter li a > img {
         vertical-align: middle; }
+        @media screen and (max-width: 600px) {
+          #veranstalter li a > img {
+            max-width: 4em; } }
 
 .footer-contact > line {
   display: inline-block; }
@@ -499,7 +507,8 @@ body > header {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 1.5rem 0; }
+    margin: 0.75rem 0;
+    padding-top: .5em; }
     #site-nav > div > a {
       padding: .5em; }
     #site-nav > div::before {
@@ -682,7 +691,8 @@ img.cover {
       display: block; }
 
 .page-event {
-  max-width: initial; }
+  max-width: initial;
+  padding: 0; }
   .page-event > article {
     padding-top: 1.5rem; }
     .page-event > article > header {
@@ -704,8 +714,9 @@ img.cover {
   display: flex;
   justify-content: center;
   text-align: center;
-  margin: 1.5rem;
-  align-items: center; }
+  margin: 1.5rem 0;
+  align-items: center;
+  flex-wrap: wrap; }
   .links > a.link-icon, .footer-contact > a.link-icon,
   .footer-links > a.link-icon {
     padding: 0;
@@ -751,16 +762,26 @@ ul.more-list {
 #bildergalerie {
   max-width: initial;
   margin: 1.5rem; }
+  @media screen and (max-width: 600px) {
+    #bildergalerie {
+      margin: 1.5rem 0; } }
 
 .gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 1.5rem; }
+  margin: 3rem; }
+  @media screen and (max-width: 600px) {
+    .gallery {
+      margin: 1.5rem 0; } }
   .gallery > * {
-    margin: .15rem; }
-  .gallery img {
-    height: 213px; }
+    margin: .15rem;
+    flex-shrink: 1;
+    flex-basis: 300px;
+    flex-grow: 1; }
+    @media screen and (max-width: 600px) {
+      .gallery > * {
+        flex-basis: 100px; } }
 
 #lightbox {
   display: none;
