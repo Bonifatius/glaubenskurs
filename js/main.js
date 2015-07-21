@@ -12,6 +12,17 @@
     });
   });
 
+  this.notificationbar = {
+    show: function(text, status) {
+      if (status == null) {
+        status = 'success';
+      }
+      this.element = document.getElementById('notificationbar');
+      this.element.innerHTML = text;
+      return this.element.classList.add('show');
+    }
+  };
+
   window.Crypt = {
     decrypt: function(password, secure) {
       this.log("decrypting", secure);
@@ -219,15 +230,14 @@
   });
 
   this.Lightbox = (function() {
-    function Lightbox(element1, padding) {
+    function Lightbox(element1) {
       var a, j, len, ref;
       this.element = element1;
-      this.padding = padding != null ? padding : 16;
+      this.close = bind(this.close, this);
       this.click = bind(this.click, this);
       this.prev = bind(this.prev, this);
       this.next = bind(this.next, this);
       this.keyup = bind(this.keyup, this);
-      console.log('initializing new lightbox...');
       this.elements = this.element.children;
       ref = this.elements;
       for (j = 0, len = ref.length; j < len; j++) {
@@ -238,15 +248,12 @@
       }
       window.addEventListener('keyup', this.keyup);
       this.createLightbox();
-      return this;
     }
 
     Lightbox.prototype.createLightbox = function() {
-      console.log(['initial lightbox', this.lightbox]);
       if (!this.lightbox) {
         this.lightbox = document.getElementById("lightbox");
       }
-      console.log(['second step', this.lightbox]);
       if (!this.lightbox) {
         console.log('creating html element');
         this.lightbox = document.createElement("div");
@@ -256,66 +263,22 @@
       }
       this.lightbox.addEventListener('click', (function(_this) {
         return function(event) {
-          console.log(event);
           if (event.target === _this.lightbox) {
-            return _this.close(true);
+            return _this.close();
           }
         };
       })(this));
       this.hammer = new Hammer(this.lightbox);
-      this.hammer.on('swipeleft', (function(_this) {
-        return function(event) {
-          return _this.prev();
-        };
-      })(this));
-      this.hammer.on('swiperight', (function(_this) {
-        return function(event) {
-          return _this.next();
-        };
-      })(this));
+      this.hammer.on('swipeleft', this.prev);
+      this.hammer.on('swiperight', this.next);
       this.main = document.getElementById('lightbox-main');
       this.img = this.main.getElementsByTagName('img')[0];
       this.$previous = document.getElementById('lightbox-prev');
-      this.$previous.addEventListener('click', (function(_this) {
-        return function() {
-          return _this.prev();
-        };
-      })(this));
+      this.$previous.addEventListener('click', this.prev);
       this.$next = document.getElementById('lightbox-next');
-      this.$next.addEventListener('click', (function(_this) {
-        return function() {
-          return _this.next();
-        };
-      })(this));
+      this.$next.addEventListener('click', this.next);
       this.$close = document.getElementById('lightbox-close');
-      return this.$close.addEventListener('click', (function(_this) {
-        return function() {
-          return _this.close();
-        };
-      })(this));
-    };
-
-    Lightbox.prototype.keyup = function(event) {
-      var ref, ref1;
-      if (event.keyCode === 27) {
-        this.close(true);
-      }
-      if ((ref = event.keyCode) === 39 || ref === 74) {
-        this.next();
-      }
-      if ((ref1 = event.keyCode) === 37 || ref1 === 75) {
-        return this.prev();
-      }
-    };
-
-    Lightbox.prototype.next = function() {
-      event.preventDefault();
-      return this.show(this.currentIndex + 1);
-    };
-
-    Lightbox.prototype.prev = function() {
-      event.preventDefault();
-      return this.show(this.currentIndex - 1);
+      return this.$close.addEventListener('click', this.close);
     };
 
     Lightbox.prototype.show = function(index) {
@@ -331,9 +294,38 @@
       return this.lightbox.classList.add('show');
     };
 
+    Lightbox.prototype.keyup = function(event) {
+      var ref, ref1;
+      if (event.keyCode === 27) {
+        this.close(true);
+      }
+      if ((ref = event.keyCode) === 39 || ref === 74) {
+        this.next();
+      }
+      if ((ref1 = event.keyCode) === 37 || ref1 === 75) {
+        return this.prev();
+      }
+    };
+
+    Lightbox.prototype.next = function(event) {
+      if (event != null) {
+        event.preventDefault();
+      }
+      return this.show(this.currentIndex + 1);
+    };
+
+    Lightbox.prototype.prev = function(event) {
+      if (event != null) {
+        event.preventDefault();
+      }
+      return this.show(this.currentIndex - 1);
+    };
+
     Lightbox.prototype.click = function(event) {
       var el, element, element_index, index, j, len, ref, results;
-      event.preventDefault();
+      if (event != null) {
+        event.preventDefault();
+      }
       element = event.target;
       if (element.tagName === "IMG") {
         element = element.parentElement;
@@ -353,9 +345,9 @@
       return results;
     };
 
-    Lightbox.prototype.close = function(animate) {
-      if (animate == null) {
-        animate = true;
+    Lightbox.prototype.close = function(event) {
+      if (event != null) {
+        event.preventDefault();
       }
       return this.lightbox.classList.remove('show');
     };
@@ -373,6 +365,63 @@
       results.push(new Lightbox(gallery));
     }
     return results;
+  });
+
+  this.Subscribe = (function() {
+    function Subscribe(element1) {
+      this.element = element1;
+      this.callback = bind(this.callback, this);
+      this.submit = bind(this.submit, this);
+      this.element.addEventListener('submit', this.submit);
+      this.baseUrl = this.element.getAttribute('action').replace('/post?', '/post-json?');
+    }
+
+    Subscribe.prototype.mailValue = function() {
+      return document.getElementById("subscribe-mail").value;
+    };
+
+    Subscribe.prototype.url = function() {
+      return this.baseUrl + "&EMAIL=" + (encodeURIComponent(this.mailValue())) + "&c=";
+    };
+
+    Subscribe.prototype.submit = function(event) {
+      event.preventDefault();
+      return jsonpRequest.request(this.url(), this.callback);
+    };
+
+    Subscribe.prototype.callback = function(data) {
+      console.log(data);
+      if (data.result === 'success') {
+        return notificationbar.show('Danke für deine Anmeldung zu unserem Mailverteiler. Wir haben dir eine Mail mit einem Link geschickt. Den musst du noch klicken um die Anmeldung abzuschließen.');
+      }
+    };
+
+    return Subscribe;
+
+  })();
+
+  this.jsonpRequest = {
+    numCallbacks: 0,
+    request: function(url, callback) {
+      var cbid, script;
+      cbid = "callback" + (jsonpRequest.numCallbacks++);
+      this[cbid] = callback;
+      if (url.charAt(url.length - 1) !== '=') {
+        url += url.indexOf('?') ? '&' : '?';
+        url += 'callback';
+      }
+      url += "jsonpRequest." + cbid;
+      console.log("jsonprequest " + url);
+      script = document.createElement('script');
+      script.setAttribute('src', url);
+      script.setAttribute('type', 'text/javascript');
+      script.setAttribute('data-jsonp-callback', cbid);
+      return document.body.appendChild(script);
+    }
+  };
+
+  document.addEventListener("DOMContentLoaded", function() {
+    return new Subscribe(document.getElementById('subscribe-form'));
   });
 
 }).call(this);

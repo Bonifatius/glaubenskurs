@@ -1,6 +1,6 @@
 # Gallery
 
-class Gallery
+class @Gallery
   constructor: (@element) ->
     @createLightbox()
     for a in @element.children when a.hasAttribute("href")

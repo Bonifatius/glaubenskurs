@@ -80,4 +80,5 @@ DEPENDENCIES
   flickraw
   jekyll (~> 2.5)
   jekyll-asciidoc
+  rake
   rake-jekyll (~> 1.0)
