@@ -108,9 +108,211 @@
     logging: !false
   };
 
+  this.Lightbox = (function() {
+    function Lightbox() {
+      this.close = bind(this.close, this);
+      this.keyup = bind(this.keyup, this);
+      window.addEventListener('keyup', this.keyup);
+      this.closeOnBackground = false;
+      this.createLightbox();
+    }
+
+    Lightbox.prototype.createLightbox = function() {
+      if (this.lightbox) {
+        this.lightbox.remove();
+      }
+      this.lightbox = document.body.appendChild($build("div", {
+        "id": "lightbox"
+      }));
+      this.$close = this.lightbox.appendChild($build('a', {
+        'href': '#',
+        'id': 'lightbox-close'
+      }));
+      this.$close.addEventListener('click', this.close);
+      this.$main = this.lightbox.appendChild($build('main'));
+      this.lightbox.addEventListener('click', (function(_this) {
+        return function(event) {
+          if (event.target === _this.lightbox && _this.closeOnBackground) {
+            return _this.close();
+          }
+        };
+      })(this));
+      return this.hammer = new Hammer(this.lightbox);
+    };
+
+    Lightbox.prototype.getElement = function() {
+      return this.lightbox;
+    };
+
+    Lightbox.prototype.keyup = function(event) {
+      if (event.keyCode === 27) {
+        return this.close();
+      }
+    };
+
+    Lightbox.prototype.close = function(event) {
+      if (event != null) {
+        event.preventDefault();
+      }
+      this.lightbox.classList.remove('show');
+      document.body.classList.remove('noscroll');
+      return this.closeOnBackground = false;
+    };
+
+    Lightbox.prototype.setContent = function(content) {
+      this.lightbox.classList.add('show');
+      document.body.classList.add('noscroll');
+      if (this.current_content) {
+        this.$main.removeChild(this.current_content);
+      }
+      console.log(content);
+      if (typeof content === "string") {
+        this.current_content = $build('div');
+        this.current_content.innerHTML = content;
+      } else {
+        this.current_content = content;
+      }
+      return this.$main.appendChild(this.current_content);
+    };
+
+    return Lightbox;
+
+  })();
+
+  Lightbox.Gallery = (function() {
+    function Gallery(elements) {
+      var a, j, len, ref;
+      this.elements = elements;
+      this.click = bind(this.click, this);
+      this.prev = bind(this.prev, this);
+      this.next = bind(this.next, this);
+      this.keyup = bind(this.keyup, this);
+      window.addEventListener('keyup', this.keyup);
+      this.createElement();
+      ref = this.elements;
+      for (j = 0, len = ref.length; j < len; j++) {
+        a = ref[j];
+        if (a.hasAttribute("href")) {
+          a.addEventListener('click', this.click);
+        }
+      }
+    }
+
+    Gallery.prototype.createElement = function() {
+      var $navigation, $next, $previous;
+      this.$element = $build('div', {
+        'id': 'lightbox-gallery'
+      });
+      $navigation = this.$element.appendChild($build('div', {
+        'id': 'lightbox-navigation',
+        'data-hello': 'world'
+      }));
+      $previous = $navigation.appendChild($build('a', {
+        'href': '#'
+      }));
+      $previous.addEventListener('click', this.prev);
+      $next = $navigation.appendChild($build('a', {
+        'href': '#'
+      }));
+      $next.addEventListener('click', this.next);
+      this.$img = this.$element.appendChild($build('img'));
+      lightbox.hammer.on('swipeleft', this.prev);
+      return lightbox.hammer.on('swiperight', this.next);
+    };
+
+    Gallery.prototype.show = function(index) {
+      var element;
+      this.currentIndex = index % this.elements.length;
+      if (this.currentIndex < 0) {
+        this.currentIndex += this.elements.length;
+      }
+      console.log(['show', this.currentIndex]);
+      element = this.elements[this.currentIndex];
+      console.log(['element', element]);
+      return this.$img.setAttribute('src', element.getAttribute('href'));
+    };
+
+    Gallery.prototype.keyup = function(event) {
+      var ref, ref1;
+      if ((ref = event.keyCode) === 39 || ref === 74) {
+        this.next();
+      }
+      if ((ref1 = event.keyCode) === 37 || ref1 === 75) {
+        return this.prev();
+      }
+    };
+
+    Gallery.prototype.next = function(event) {
+      if (event != null) {
+        event.preventDefault();
+      }
+      return this.show(this.currentIndex + 1);
+    };
+
+    Gallery.prototype.prev = function(event) {
+      if (event != null) {
+        event.preventDefault();
+      }
+      return this.show(this.currentIndex - 1);
+    };
+
+    Gallery.prototype.click = function(event) {
+      var el, element, element_index, index, j, len, ref, results;
+      if (event != null) {
+        event.preventDefault();
+      }
+      element = event.target;
+      if (element.tagName === "IMG") {
+        element = element.parentElement;
+      }
+      lightbox.setContent(this.$element);
+      ref = this.elements;
+      results = [];
+      for (element_index = j = 0, len = ref.length; j < len; element_index = ++j) {
+        el = ref[element_index];
+        if (!(element === el)) {
+          continue;
+        }
+        index = element_index;
+        this.show(index);
+        break;
+      }
+      return results;
+    };
+
+    return Gallery;
+
+  })();
+
+  this.$build = function(type, attributes) {
+    var attribute, element, value;
+    if (attributes == null) {
+      attributes = {};
+    }
+    console.log(['creating', arguments]);
+    element = document.createElement(type);
+    for (attribute in attributes) {
+      value = attributes[attribute];
+      element.setAttribute(attribute, value);
+    }
+    return element;
+  };
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var gallery, j, len, ref, results;
+    window.lightbox = new Lightbox();
+    ref = document.getElementsByClassName('gallery');
+    results = [];
+    for (j = 0, len = ref.length; j < len; j++) {
+      gallery = ref[j];
+      results.push(new Lightbox.Gallery(gallery.children));
+    }
+    return results;
+  });
+
   KEY_ESCAPE = 27;
 
-  window.CryptUI = {
+  Lightbox.CryptUI = {
     askPassword: function(crypt) {
       var error, password;
       this.crypt = crypt;
@@ -120,22 +322,24 @@
           return;
         } catch (_error) {
           error = _error;
-          console.error("deleting invalid cookie: " + password);
+          console.error("invalid cookie: " + password);
         }
       }
       return this.showModal();
     },
     submitForm: function(event) {
       var error;
+      event.preventDefault();
       this.cleanModal();
+      console.log(this.$input);
       try {
-        this.performDecrypt(this.input().value);
-        this.setCookie(this.input().value);
-        this.modalElement.classList.add("success");
+        this.performDecrypt(this.$input.value);
+        this.setCookie(this.$input.value);
+        this.$element.classList.add("success");
       } catch (_error) {
         error = _error;
         console.error(error);
-        this.modalElement.classList.add("error");
+        this.$element.classList.add("error");
       }
       return false;
     },
@@ -146,50 +350,44 @@
       return location.href = decrypted;
     },
     cleanModal: function() {
-      this.modalElement.classList.remove("error");
-      return this.modalElement.classList.remove("success");
-    },
-    input: function() {
-      return this.modalElement.getElementsByTagName("input")[0];
+      this.$element.classList.remove("error");
+      return this.$element.classList.remove("success");
     },
     hideModal: function() {
-      this.modalElement.classList.remove("show");
       this.cleanModal();
-      return this.input.value = "";
+      this.$input.value = "";
+      return lightbox.close();
     },
-    showModal: function() {
-      var div, input, label;
-      if (!this.modalElement) {
-        this.modalElement = document.getElementById("password-modal");
-      }
-      if (!this.modalElement) {
-        div = document.createElement("div");
-        div.setAttribute("id", "password-modal");
-        input = document.createElement("input");
-        input.setAttribute("type", "text");
-        label = document.createElement("label");
-        label.innerText = "Passwort:";
-        div.appendChild(label);
-        div.appendChild(input);
-        document.body.appendChild(div);
-        this.modalElement = div;
-      }
-      this.modalElement.classList.add("show");
-      this.input().focus();
-      window.addEventListener("keydown", (function(_this) {
+    createElement: function() {
+      this.$element = $build('div', {
+        'id': 'password-modal'
+      });
+      this.$form = this.$element.appendChild($build('form'));
+      this.$form.addEventListener('submit', (function(_this) {
         return function(event) {
-          _this.cleanModal();
-          if (event.keyCode === KEY_ESCAPE) {
-            return _this.hideModal();
-          }
-        };
-      })(this));
-      return this.modalElement.getElementsByTagName("form")[0].addEventListener('submit', (function(_this) {
-        return function(event) {
-          event.preventDefault();
           return _this.submitForm(event);
         };
       })(this));
+      (this.$form.appendChild($build('label'))).innerText = 'Passwort';
+      this.$input = this.$form.appendChild($build('input', {
+        'type': 'text'
+      }));
+      (this.$form.appendChild($build('button'))).innerText = 'Link öffnen';
+      this.cleanModal();
+      return this.$element;
+    },
+    showModal: function() {
+      window.addEventListener('keydown', (function(_this) {
+        return function() {
+          return _this.cleanModal();
+        };
+      })(this));
+      if (!this.$element) {
+        this.createElement();
+      }
+      lightbox.closeOnBackground = false;
+      lightbox.setContent(this.$element);
+      return this.$input.focus();
     },
     setCookie: function(password) {
       return document.cookie = this.COOKIE_KEY + "=" + (encodeURIComponent(password));
@@ -219,150 +417,12 @@
         if (a.getAttribute("href").match(/\/guard\?(.*)/)) {
           results.push(a.addEventListener('click', function(event) {
             event.preventDefault();
-            return CryptUI.askPassword(this.getAttribute("href"));
+            return Lightbox.CryptUI.askPassword(this.getAttribute("href"));
           }));
         } else {
           results.push(void 0);
         }
       }
-    }
-    return results;
-  });
-
-  this.Lightbox = (function() {
-    function Lightbox(element1) {
-      var a, j, len, ref;
-      this.element = element1;
-      this.close = bind(this.close, this);
-      this.click = bind(this.click, this);
-      this.prev = bind(this.prev, this);
-      this.next = bind(this.next, this);
-      this.keyup = bind(this.keyup, this);
-      this.elements = this.element.children;
-      ref = this.elements;
-      for (j = 0, len = ref.length; j < len; j++) {
-        a = ref[j];
-        if (a.hasAttribute("href")) {
-          a.addEventListener('click', this.click);
-        }
-      }
-      window.addEventListener('keyup', this.keyup);
-      this.createLightbox();
-    }
-
-    Lightbox.prototype.createLightbox = function() {
-      if (!this.lightbox) {
-        this.lightbox = document.getElementById("lightbox");
-      }
-      if (!this.lightbox) {
-        console.log('creating html element');
-        this.lightbox = document.createElement("div");
-        this.lightbox.setAttribute("id", "lightbox");
-        this.lightbox.innerHTML = "<a href=\"#\" id=\"lightbox-close\"></a>\n<main id=\"lightbox-main\">\n  <div id=\"lightbox-navigation\">\n    <a href=\"#\" id=\"lightbox-prev\"></a>\n    <a href=\"#\" id=\"lightbox-next\"></a>\n  </div>\n  <img />\n</main>";
-        document.body.appendChild(this.lightbox);
-      }
-      this.lightbox.addEventListener('click', (function(_this) {
-        return function(event) {
-          if (event.target === _this.lightbox) {
-            return _this.close();
-          }
-        };
-      })(this));
-      this.hammer = new Hammer(this.lightbox);
-      this.hammer.on('swipeleft', this.prev);
-      this.hammer.on('swiperight', this.next);
-      this.main = document.getElementById('lightbox-main');
-      this.img = this.main.getElementsByTagName('img')[0];
-      this.$previous = document.getElementById('lightbox-prev');
-      this.$previous.addEventListener('click', this.prev);
-      this.$next = document.getElementById('lightbox-next');
-      this.$next.addEventListener('click', this.next);
-      this.$close = document.getElementById('lightbox-close');
-      return this.$close.addEventListener('click', this.close);
-    };
-
-    Lightbox.prototype.show = function(index) {
-      var element;
-      this.currentIndex = index % this.elements.length;
-      if (this.currentIndex < 0) {
-        this.currentIndex += this.elements.length;
-      }
-      console.log(['show', this.currentIndex]);
-      element = this.elements[this.currentIndex];
-      console.log(['element', element]);
-      this.img.setAttribute('src', element.getAttribute('href'));
-      return this.lightbox.classList.add('show');
-    };
-
-    Lightbox.prototype.keyup = function(event) {
-      var ref, ref1;
-      if (event.keyCode === 27) {
-        this.close(true);
-      }
-      if ((ref = event.keyCode) === 39 || ref === 74) {
-        this.next();
-      }
-      if ((ref1 = event.keyCode) === 37 || ref1 === 75) {
-        return this.prev();
-      }
-    };
-
-    Lightbox.prototype.next = function(event) {
-      if (event != null) {
-        event.preventDefault();
-      }
-      return this.show(this.currentIndex + 1);
-    };
-
-    Lightbox.prototype.prev = function(event) {
-      if (event != null) {
-        event.preventDefault();
-      }
-      return this.show(this.currentIndex - 1);
-    };
-
-    Lightbox.prototype.click = function(event) {
-      var el, element, element_index, index, j, len, ref, results;
-      if (event != null) {
-        event.preventDefault();
-      }
-      element = event.target;
-      if (element.tagName === "IMG") {
-        element = element.parentElement;
-      }
-      console.log(["click event on", element]);
-      ref = this.elements;
-      results = [];
-      for (element_index = j = 0, len = ref.length; j < len; element_index = ++j) {
-        el = ref[element_index];
-        if (!(element === el)) {
-          continue;
-        }
-        index = element_index;
-        this.show(index);
-        break;
-      }
-      return results;
-    };
-
-    Lightbox.prototype.close = function(event) {
-      if (event != null) {
-        event.preventDefault();
-      }
-      return this.lightbox.classList.remove('show');
-    };
-
-    return Lightbox;
-
-  })();
-
-  document.addEventListener("DOMContentLoaded", function() {
-    var gallery, j, len, ref, results;
-    ref = document.getElementsByClassName('gallery');
-    results = [];
-    for (j = 0, len = ref.length; j < len; j++) {
-      gallery = ref[j];
-      results.push(new Lightbox(gallery));
     }
     return results;
   });

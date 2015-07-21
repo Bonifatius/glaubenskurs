@@ -1,7 +1,6 @@
 KEY_ESCAPE = 27
 
-window.CryptUI = {
-
+Lightbox.CryptUI = {
   askPassword: (crypt) ->
     @crypt = crypt
 
@@ -11,20 +10,22 @@ window.CryptUI = {
 
         return
       catch error
-        console.error "deleting invalid cookie: #{password}"
+        console.error "invalid cookie: #{password}"
 
     @showModal()
 
   submitForm: (event) ->
+    event.preventDefault()
     @cleanModal()
+    console.log @$input
     try
-      @performDecrypt @input().value
-      @setCookie @input().value
-      @modalElement.classList.add("success")
+      @performDecrypt @$input.value
+      @setCookie @$input.value
+      @$element.classList.add("success")
 
     catch error
       console.error error
-      @modalElement.classList.add("error")
+      @$element.classList.add("error")
     return false
 
   performDecrypt: (password) ->
@@ -33,41 +34,32 @@ window.CryptUI = {
     location.href = decrypted
 
   cleanModal: ()->
-    @modalElement.classList.remove("error")
-    @modalElement.classList.remove("success")
-
-  input: ->
-    @modalElement.getElementsByTagName("input")[0]
+    @$element.classList.remove("error")
+    @$element.classList.remove("success")
 
   hideModal: ->
-    @modalElement.classList.remove("show")
     @cleanModal()
-    @input.value = ""
+    @$input.value = ""
+    lightbox.close()
+
+  createElement: ->
+    @$element = $build 'div', 'id': 'password-modal'
+    @$form    = @$element.appendChild $build 'form'
+    @$form.addEventListener 'submit', (event) =>
+      @submitForm(event)
+    (@$form.appendChild $build 'label').innerText = 'Passwort'
+    @$input = @$form.appendChild $build 'input', 'type': 'text'
+    (@$form.appendChild $build 'button').innerText = 'Link öffnen'
+
+    @cleanModal()
+    @$element
 
   showModal: ->
-    @modalElement = document.getElementById("password-modal") unless @modalElement
-    unless @modalElement
-      div = document.createElement "div"
-      div.setAttribute "id", "password-modal"
-      input = document.createElement "input"
-      input.setAttribute "type", "text"
-      label = document.createElement "label"
-      label.innerText = "Passwort:"
-      div.appendChild label
-      div.appendChild input
-      document.body.appendChild(div)
-      @modalElement = div
-
-    @modalElement.classList.add("show")
-    @input().focus()
-
-    window.addEventListener "keydown", (event) =>
-      @cleanModal()
-      @hideModal() if event.keyCode == KEY_ESCAPE
-
-    @modalElement.getElementsByTagName("form")[0].addEventListener 'submit', (event) =>
-      event.preventDefault()
-      @submitForm(event)
+    window.addEventListener 'keydown', => @cleanModal()
+    @createElement() unless @$element
+    lightbox.closeOnBackground = false
+    lightbox.setContent @$element
+    @$input.focus()
 
   setCookie: (password) ->
     document.cookie = "#{@COOKIE_KEY}=#{encodeURIComponent(password)}"
@@ -89,4 +81,4 @@ document.addEventListener "DOMContentLoaded", ->
     if a.getAttribute("href").match /\/guard\?(.*)/
       a.addEventListener 'click', (event) ->
         event.preventDefault()
-        CryptUI.askPassword(@getAttribute("href"))
+        Lightbox.CryptUI.askPassword(@getAttribute("href"))

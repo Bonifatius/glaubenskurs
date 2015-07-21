@@ -413,7 +413,7 @@ body > header {
   position: relative;
   background-image: url(/img/symbol.svg), linear-gradient(to right, #FFFBF9 0%, #FFF9F0 50%, #FFF9F0 100%);
   background-repeat: no-repeat;
-  background-position-x: center;
+  background-position: center;
   background-size: contain; }
 
 .site-header {
@@ -539,67 +539,6 @@ body > header {
     #navicon > svg path {
       fill: #666; }
 
-#password-modal {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(255, 255, 255, 0.92);
-  display: none;
-  justify-content: center;
-  align-items: center; }
-  #password-modal.show {
-    display: flex; }
-  #password-modal.error input[type=text] {
-    border-color: #fd9e83;
-    color: #b12903; }
-  #password-modal.error form::before {
-    animation: errorcircle .4s; }
-  #password-modal.success input[type=text] {
-    border-color: #9efd83;
-    color: #26a203; }
-  #password-modal.success form::before {
-    background-color: #82ff78;
-    animation: errorcircle .4s; }
-  #password-modal > form {
-    text-align: center; }
-    #password-modal > form label {
-      font-size: .9em;
-      color: #999;
-      display: block; }
-    #password-modal > form input[type="text"] {
-      font-size: 2em;
-      border-radius: .22rem;
-      border: 0.15rem solid #e8e8e8;
-      padding: .2em;
-      text-align: center;
-      display: block;
-      transition: border-color, color .3s ease-in-out;
-      letter-spacing: .05em; }
-    #password-modal > form button {
-      margin: 1.5rem 0; }
-    #password-modal > form::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      z-index: -1;
-      width: 11rem;
-      height: 11rem;
-      margin-left: -5.5rem;
-      margin-top: -5.5rem;
-      opacity: 0;
-      background-color: #ff8278;
-      border-radius: 50%; }
-
-@keyframes errorcircle {
-  from {
-    transform: scale(0.1);
-    opacity: 0.8; }
-  to {
-    transform: scale(2);
-    opacity: 0.0; } }
 .icon-rss--background {
   fill: transparent; }
 
@@ -632,6 +571,140 @@ a:hover .icon-rss--foreground {
   #notificationbar.show {
     transform: translateY(0); }
 
+body.noscroll {
+  overflow: hidden; }
+
+#lightbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  padding: 3rem;
+  opacity: 0;
+  transition: opacity .5s;
+  transform: scale(0, 0); }
+  @media screen and (max-width: 600px) {
+    #lightbox {
+      padding: 0.75rem; } }
+  #lightbox.show {
+    opacity: 1;
+    transition: opacity .5s;
+    transform: scale(1, 1); }
+    #lightbox.show > main {
+      transition: all, .2s;
+      transform: scale(1, 1); }
+  #lightbox > main {
+    position: relative;
+    transform: scale(0, 0);
+    transition: all, .2s; }
+    #lightbox > main img {
+      border-radius: .5rem; }
+
+#lightbox-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 1.5rem;
+  font-size: 2em;
+  color: #ddd;
+  line-height: 1;
+  border: .2rem solid;
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  z-index: 2; }
+  #lightbox-close:hover {
+    color: #999;
+    transform: scale(1.1, 1.1); }
+  #lightbox-close::before, #lightbox-close::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    width: 70%;
+    border-radius: 1px;
+    border: .05em solid;
+    margin: -.05em;
+    display: inline-block;
+    transform-origin: 50% 50%; }
+  #lightbox-close::before {
+    transform: rotate(45deg); }
+  #lightbox-close::after {
+    transform: rotate(-45deg); }
+
+#lightbox-navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: stretch; }
+  #lightbox-navigation > a {
+    display: block;
+    content: "";
+    flex-grow: 1; }
+    #lightbox-navigation > a:hover:last-child {
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1)); }
+    #lightbox-navigation > a:hover:first-child {
+      background-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1)); }
+
+#password-modal.error input[type=text] {
+  border-color: #fd9e83;
+  color: #b12903; }
+#password-modal.error form::before {
+  animation: errorcircle .4s; }
+#password-modal.success input[type=text] {
+  border-color: #9efd83;
+  color: #26a203; }
+#password-modal.success form::before {
+  background-color: #82ff78;
+  animation: errorcircle .4s; }
+#password-modal > form {
+  text-align: center; }
+  #password-modal > form label {
+    font-size: .9em;
+    color: #999;
+    display: block; }
+  #password-modal > form input[type="text"] {
+    font-size: 2em;
+    border-radius: .22rem;
+    border: 0.15rem solid #e8e8e8;
+    padding: .2em;
+    text-align: center;
+    display: block;
+    transition: border-color, color .3s ease-in-out;
+    letter-spacing: .05em; }
+  #password-modal > form button {
+    margin: 1.5rem 0; }
+  #password-modal > form::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    width: 11rem;
+    height: 11rem;
+    margin-left: -5.5rem;
+    margin-top: -5.5rem;
+    opacity: 0;
+    background-color: #ff8278;
+    border-radius: 50%; }
+
+@keyframes errorcircle {
+  from {
+    transform: scale(0.1);
+    opacity: 0.8; }
+  to {
+    transform: scale(2);
+    opacity: 0.0; } }
 section {
   clear: both; }
 
@@ -796,89 +869,6 @@ ul.more-list {
     @media screen and (max-width: 600px) {
       .gallery > * {
         flex-basis: 100px; } }
-
-#lightbox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(255, 255, 255, 0.9);
-  right: 0;
-  bottom: 0;
-  justify-content: center;
-  padding: 3rem;
-  opacity: 0;
-  transition: opacity .5s;
-  transform: scale(0, 0); }
-  @media screen and (max-width: 600px) {
-    #lightbox {
-      padding: 0.75rem; } }
-  #lightbox.show {
-    opacity: 1;
-    transition: opacity .5s;
-    transform: scale(1, 1); }
-
-#lightbox-main {
-  position: relative;
-  transform: scale(0, 0);
-  transition: all, .2s; }
-  #lightbox-main img {
-    border-radius: .5rem; }
-  #lightbox.show #lightbox-main {
-    transition: all, .2s;
-    transform: scale(1, 1); }
-
-#lightbox-close {
-  position: absolute;
-  right: 0;
-  top: 0;
-  margin: 1.5rem;
-  font-size: 2em;
-  color: #ddd;
-  line-height: 1;
-  border: .2rem solid;
-  border-radius: 50%;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  z-index: 2; }
-  #lightbox-close:hover {
-    color: #999;
-    transform: scale(1.1, 1.1); }
-  #lightbox-close::before, #lightbox-close::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 15%;
-    width: 70%;
-    border-radius: 1px;
-    border: .05em solid;
-    margin: -.05em;
-    display: inline-block;
-    transform-origin: 50% 50%; }
-  #lightbox-close::before {
-    transform: rotate(45deg); }
-  #lightbox-close::after {
-    transform: rotate(-45deg); }
-
-#lightbox-navigation {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: stretch; }
-  #lightbox-navigation > a {
-    display: block;
-    content: "";
-    flex-grow: 1; }
-    #lightbox-navigation > a:hover:last-child {
-      background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1)); }
-    #lightbox-navigation > a:hover:first-child {
-      background-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1)); }
 
 /* ==========================================================================
    Print styles.
