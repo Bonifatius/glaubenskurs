@@ -19,7 +19,12 @@
       }
       this.element = document.getElementById('notificationbar');
       this.element.innerHTML = text;
-      return this.element.classList.add('show');
+      this.element.classList.add('show');
+      return this.element.addEventListener('click', (function(_this) {
+        return function() {
+          return _this.element.classList.remove('show');
+        };
+      })(this));
     }
   };
 

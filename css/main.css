@@ -46,151 +46,30 @@ li > ol {
   margin-bottom: 0; }
 
 /**
- * Wrapper
- */
-.wrapper {
-  max-width: -webkit-calc(40rem - (1.5rem * 2));
-  max-width: calc(40rem - (1.5rem * 2));
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 1.5rem;
-  padding-left: 1.5rem; }
-  @media screen and (max-width: 800px) {
-    .wrapper {
-      max-width: -webkit-calc(40rem - (1.5rem));
-      max-width: calc(40rem - (1.5rem));
-      padding-right: 0.75rem;
-      padding-left: 0.75rem; } }
-
-/**
  * Clearfix
  */
-.wrapper:after, section:after, article > main:after, article > header:after, article > footer:after {
+section:after, article > main:after, article > header:after, article > footer:after {
   content: "";
   display: table;
   clear: both; }
 
 /**
  * Icons
- */
-.icon > svg {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  vertical-align: middle; }
-  .icon > svg path {
-    fill: #828282; }
+ *
+.icon {
 
-/**
- * Site header
- */
-/*.site-nav {
-    float: right;
-    line-height: 56px;
+    > svg {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
 
-    .menu-icon {
-        display: none;
-    }
-
-    .page-link {
-        color: $text-color;
-        line-height: $base-line-height;
-
-        // Gaps between nav items, but not on the first one
-        &:not(:first-child) {
-            margin-left: 20px;
+        path {
+            fill: $grey-color;
         }
     }
-
-    @include media-query($on-palm) {
-        position: absolute;
-        top: 9px;
-        right: 30px;
-        background-color: $background-color;
-        border: 1px solid $grey-color-light;
-        border-radius: 5px;
-        text-align: right;
-
-        .menu-icon {
-            display: block;
-            float: right;
-            width: 36px;
-            height: 26px;
-            line-height: 0;
-            padding-top: 10px;
-            text-align: center;
-
-            > svg {
-                width: 18px;
-                height: 15px;
-
-                path {
-                    fill: $grey-color-dark;
-                }
-            }
-        }
-
-        .trigger {
-            clear: both;
-            display: none;
-        }
-
-        &:hover .trigger {
-            display: block;
-            padding-bottom: 5px;
-        }
-
-        .page-link {
-            display: block;
-            padding: 5px 10px;
-        }
-    }
-}*/
-/**
- * Page content
- */
-.page-content {
-  padding: 1.5rem 0; }
-
-.page-heading {
-  font-size: 20px; }
-
-.post-meta {
-  font-size: 14pt;
-  color: #828282; }
-
-/**
- * Posts
- */
-.post-header {
-  margin-bottom: 1.5rem; }
-
-.post-title {
-  font-size: 42px;
-  letter-spacing: -1px;
-  line-height: 1; }
-  @media screen and (max-width: 800px) {
-    .post-title {
-      font-size: 36px; } }
-
-.post-content {
-  margin-bottom: 1.5rem; }
-  .post-content h2 {
-    font-size: 32px; }
-    @media screen and (max-width: 800px) {
-      .post-content h2 {
-        font-size: 28px; } }
-  .post-content h3 {
-    font-size: 26px; }
-    @media screen and (max-width: 800px) {
-      .post-content h3 {
-        font-size: 22px; } }
-  .post-content h4 {
-    font-size: 20px; }
-    @media screen and (max-width: 800px) {
-      .post-content h4 {
-        font-size: 18px; } }
-
+}
+*/
 /*
  * Remove the gap between audio, canvas, iframes,
  * images, videos and the bottom of their containers:
@@ -485,9 +364,9 @@ body > header {
           #veranstalter li a > img {
             max-width: 4em; } }
 
-.footer-contact > line {
+.footer-contact > span {
   display: inline-block; }
-  .footer-contact > line + *::before {
+  .footer-contact > span + *::before {
     content: "\00B7";
     padding: 0 .5em; }
 
