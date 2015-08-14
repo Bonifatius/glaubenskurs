@@ -211,6 +211,11 @@ input[type=text], input[type=email] {
   border-radius: .3em;
   border: 1px solid #eee; }
 
+p {
+  margin: 0; }
+  p + p {
+    margin-top: 0.75rem; }
+
 /**
  * Blockquotes
  */
@@ -418,13 +423,13 @@ body > header {
     #navicon > svg path {
       fill: #666; }
 
-.icon-rss--background {
+.icon-background {
   fill: transparent; }
 
-.icon-rss--foreground {
+.icon-foreground {
   fill: #db9900; }
 
-a:hover .icon-rss--foreground {
+a:hover .icon-foreground {
   fill: #442; }
 
 #subscribe-form {
@@ -708,6 +713,33 @@ ul.more-list {
 .page-home > section .kurs-info {
   border-style: none none dotted; }
 
+.upcoming {
+  border-bottom: 0.2rem dotted #e8e8e8;
+  padding-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap; }
+  .upcoming > h2 {
+    width: 100%; }
+  .upcoming > .wo-und-wann {
+    flex: 1 1 50%; }
+    .upcoming > .wo-und-wann > span {
+      display: block; }
+
+.framed {
+  border: 0.3rem solid #828282;
+  padding: .5rem;
+  border-radius: .5rem;
+  background-color: #fc810a;
+  color: #ffd;
+  text-align: center; }
+  .framed a {
+    color: #FC6; }
+  .framed img.cover {
+    margin-top: 0;
+    margin-bottom: 0; }
+  .framed > * + * {
+    margin-top: .5rem; }
+
 .page-index .post-list {
   position: relative; }
   .page-index .post-list::before {
@@ -748,6 +780,9 @@ ul.more-list {
     @media screen and (max-width: 600px) {
       .gallery > * {
         flex-basis: 100px; } }
+
+.gsc-control-cse * {
+  box-sizing: content-box; }
 
 /* ==========================================================================
    Print styles.
