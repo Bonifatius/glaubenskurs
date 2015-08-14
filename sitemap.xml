@@ -3,25 +3,12 @@
   
   
     
-    <url>
-      <loc>http://glaubenskurs.bonifati.us/404.html</loc>
-      
-        <lastmod>2015-08-14T17:09:55+00:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
   
     
     <url>
       <loc>http://glaubenskurs.bonifati.us/about/</loc>
       
-        <lastmod>2015-08-14T17:09:55+00:00</lastmod>
+        <lastmod>2015-08-14T17:31:20+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -36,7 +23,7 @@
     <url>
       <loc>http://glaubenskurs.bonifati.us/calendar.ics</loc>
       
-        <lastmod>2015-08-14T17:09:55+00:00</lastmod>
+        <lastmod>2015-08-14T17:31:20+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -47,26 +34,13 @@
     </url>
     
   
-    
-    <url>
-      <loc>http://glaubenskurs.bonifati.us/datenschutz/</loc>
-      
-        <lastmod>2015-08-14T17:09:55+00:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
     
   
     
     <url>
       <loc>http://glaubenskurs.bonifati.us/feed.xml</loc>
       
-        <lastmod>2015-08-14T17:09:55+00:00</lastmod>
+        <lastmod>2015-08-14T17:31:20+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -78,55 +52,16 @@
     
   
     
-    <url>
-      <loc>http://glaubenskurs.bonifati.us/googlebaf10e1859ea12e7.html</loc>
-      
-        <lastmod>2015-08-14T17:09:55+00:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
   
     
-    <url>
-      <loc>http://glaubenskurs.bonifati.us/impressum/</loc>
-      
-        <lastmod>2015-08-14T17:09:55+00:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
   
-    
-    <url>
-      <loc>http://glaubenskurs.bonifati.us/kurse/2015-07/talk/</loc>
-      
-        <lastmod>2015-08-14T17:09:55+00:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
     
   
     
     <url>
       <loc>http://glaubenskurs.bonifati.us/</loc>
       
-        <lastmod>2015-08-14T17:09:55+00:00</lastmod>
+        <lastmod>2015-08-14T17:31:20+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -141,7 +76,37 @@
     <url>
       <loc>http://glaubenskurs.bonifati.us/kurse/</loc>
       
-        <lastmod>2015-08-14T17:09:55+00:00</lastmod>
+        <lastmod>2015-08-14T17:31:20+00:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://glaubenskurs.bonifati.us/js/main.js</loc>
+      
+        <lastmod>2015-08-14T17:31:20+00:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://glaubenskurs.bonifati.us/css/main.css</loc>
+      
+        <lastmod>2015-08-14T17:31:20+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -154,16 +119,13 @@
   
     
   
-    
-  
-    
   
   
     
     <url>
       <loc>http://glaubenskurs.bonifati.us/kurse/2011-03/</loc>
       
-        <lastmod>2015-08-14T17:09:55+00:00</lastmod>
+        <lastmod>2015-08-14T17:31:20+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -178,7 +140,7 @@
     <url>
       <loc>http://glaubenskurs.bonifati.us/kurse/2011-10/</loc>
       
-        <lastmod>2015-08-14T17:09:55+00:00</lastmod>
+        <lastmod>2015-08-14T17:31:20+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -193,7 +155,7 @@
     <url>
       <loc>http://glaubenskurs.bonifati.us/kurse/2012-01/</loc>
       
-        <lastmod>2015-08-14T17:09:55+00:00</lastmod>
+        <lastmod>2015-08-14T17:31:20+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -208,7 +170,7 @@
     <url>
       <loc>http://glaubenskurs.bonifati.us/kurse/2012-08/</loc>
       
-        <lastmod>2015-08-14T17:09:55+00:00</lastmod>
+        <lastmod>2015-08-14T17:31:20+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -223,7 +185,7 @@
     <url>
       <loc>http://glaubenskurs.bonifati.us/kurse/2013-01/</loc>
       
-        <lastmod>2015-08-14T17:09:55+00:00</lastmod>
+        <lastmod>2015-08-14T17:31:20+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -238,7 +200,7 @@
     <url>
       <loc>http://glaubenskurs.bonifati.us/kurse/2013-08/</loc>
       
-        <lastmod>2015-08-14T17:09:55+00:00</lastmod>
+        <lastmod>2015-08-14T17:31:20+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -253,7 +215,7 @@
     <url>
       <loc>http://glaubenskurs.bonifati.us/kurse/2014-02/</loc>
       
-        <lastmod>2015-08-14T17:09:55+00:00</lastmod>
+        <lastmod>2015-08-14T17:31:20+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -268,7 +230,7 @@
     <url>
       <loc>http://glaubenskurs.bonifati.us/kurse/2014-07/</loc>
       
-        <lastmod>2015-08-14T17:09:55+00:00</lastmod>
+        <lastmod>2015-08-14T17:31:20+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -283,7 +245,7 @@
     <url>
       <loc>http://glaubenskurs.bonifati.us/kurse/2015-01/</loc>
       
-        <lastmod>2015-08-14T17:09:55+00:00</lastmod>
+        <lastmod>2015-08-14T17:31:20+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -298,37 +260,7 @@
     <url>
       <loc>http://glaubenskurs.bonifati.us/kurse/2015-07/</loc>
       
-        <lastmod>2015-08-14T17:09:55+00:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://glaubenskurs.bonifati.us/kurse/2016-01/</loc>
-      
-        <lastmod>2015-08-14T17:09:55+00:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://glaubenskurs.bonifati.us/kurse/2016-09/</loc>
-      
-        <lastmod>2015-08-14T17:09:55+00:00</lastmod>
+        <lastmod>2015-08-14T17:31:20+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
