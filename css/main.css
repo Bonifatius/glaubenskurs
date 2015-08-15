@@ -718,8 +718,10 @@ ul.more-list {
   padding-bottom: 1.5rem;
   display: flex;
   flex-wrap: wrap; }
-  .upcoming > h2 {
-    width: 100%; }
+  .upcoming > * {
+    flex-basis: 100%; }
+  .upcoming > p {
+    text-align: center; }
   .upcoming > .wo-und-wann {
     flex: 1 1 50%; }
     .upcoming > .wo-und-wann > span {
@@ -734,11 +736,16 @@ ul.more-list {
   text-align: center; }
   .framed a {
     color: #FC6; }
+  .framed > a {
+    display: block;
+    max-width: 100%; }
   .framed img.cover {
     margin-top: 0;
     margin-bottom: 0; }
   .framed > * + * {
     margin-top: .5rem; }
+  .framed > p {
+    padding-bottom: .25rem; }
 
 .page-index .post-list {
   position: relative; }
