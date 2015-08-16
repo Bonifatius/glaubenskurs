@@ -674,6 +674,9 @@ img.cover {
       margin-top: 1.5rem; }
   .page-event .kurstitel {
     margin-top: 0; }
+  .page-event .unpublished_post {
+    padding-bottom: 0.75rem;
+    text-align: center; }
 
 .footer-links > a, .links > a, .footer-contact > a {
   padding: .3em .6em;
