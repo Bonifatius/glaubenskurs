@@ -1,0 +1,14 @@
+{% assign kurs=include.kurs %}
+{% assign ort=site.data.orte[kurs.ort] %}
+
+{% unless include.hide_title %}
+<{% if include.title_tag %}{{ include.title_tag }}{% else %}h3{%endif%} class="kurstitel">
+  {% unless include.hide_link %}<a class="post-link" href="{{ kurs.url | prepend: site.baseurl }}">{% endunless %}
+    {{ kurs.title }}
+  {% unless include.hide_link %}</a>{% endunless %}
+</{% if include.title_tag %}{{ include.title_tag }}{% else %}h3{%endif%}>
+{% endunless %}
+
+<div class="wo-und-wann">
+  {% include event_date.html kurs=kurs %} im {{ ort.haus }} {{ ort.ort }}
+</div>

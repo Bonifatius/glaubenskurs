@@ -1,0 +1,248 @@
+@import url(http://fonts.googleapis.com/css?family=Dosis|Cantarell|Josefin+Sans|Alegreya);
+
+html {
+  /* setting rem value */
+  @extend %basic-font;
+}
+%basic-font {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  font-weight: 300;
+  -webkit-text-size-adjust: 100%;
+  @media print {
+    font-size: $print-font-size;
+  }
+  @include media-query($on-palm) {
+    font-size: $mobile-font-size;
+  }
+}
+body {
+  @extend %basic-font;
+  color: $text-color;
+  background-color: $background-color;
+}
+
+%extra-text {
+  text-transform: uppercase;
+  font-family: Dosis, sans-serif;
+  font-weight: bold;
+}
+@mixin extratext($with_color: true, $with_size: true) {
+  @if $with_size {
+    font-size: .9em;
+  }
+  @if $with_color {
+    color: #999;
+  }
+  @extend %extra-text;
+}
+
+::selection {
+  background-color: lighten($brand-color, 35%);
+  text-shadow: none;
+}
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+}
+
+h1, h2 {
+  text-align: center;
+  border-bottom: .2em solid $grey-color-light;
+  margin-top: $spacing-unit;
+  font-family: Alegreya, serif;
+}
+h1 {
+  font-size: 2.4rem;
+}
+h2 {
+  font-size: 1.8rem;
+}
+
+
+hgroup {
+  margin: 3em 0 2em;
+
+  h1, h2 {
+    margin: 0;
+  }
+  h2 {
+    border-bottom: none;
+  }
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-bottom: .2em solid $grey-color-light;
+  margin: $spacing-unit 0;
+  padding: 0;
+}
+
+/**
+ * Links
+ */
+button, a {
+  color: $brand-color;
+  text-decoration: none;
+
+  &:visited {
+    //color: darken($brand-color, 15%);
+  }
+
+  &:hover {
+    color: $text-color;
+    text-decoration: none;
+  }
+}
+
+button, .btn {
+  border: .11rem solid;
+  border-radius: .3rem;
+  padding: .5em;
+}
+
+%btnrelation {
+  margin: $spacing-unit 0;
+  min-width: 11em;
+}
+.btn-more {
+  @extend %btnrelation;
+
+  text-align: right;
+  float: right;
+
+  &::after {
+    content: "\203A";
+    padding-left: .3em;
+  }
+}
+.btn-back {
+  @extend %btnrelation;
+
+  text-align: left;
+  float: left;
+
+  &::before {
+    content: "\2039";
+    padding-right: .3em;
+  }
+}
+
+button {
+  @extend %basic-font;
+  background-color: transparent;
+  font-weight: bold;
+  cursor: pointer;
+  border-width: .15rem;
+  letter-spacing: .05em;
+}
+
+input[type=text], input[type=email] {
+  font-size: 1.5em;
+  padding: .3em .6em;
+  border-radius: .3em;
+  border: 1px solid #eee;
+}
+form button {
+  @extend %extra-text;
+}
+
+p {
+  margin: 0;
+
+  + p {
+    margin-top: $spacing-unit / 2;
+  }
+}
+
+
+/**
+ * Blockquotes
+ */
+blockquote {
+  color: $grey-color;
+  border-left: 4px solid $grey-color-light;
+  padding-left: $spacing-unit / 2;
+  font-size: 18px;
+  letter-spacing: -1px;
+  font-style: italic;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+
+/**
+ * Code formatting
+ */
+pre,
+code {
+  font-size: 15px;
+  border: 1px solid $grey-color-light;
+  border-radius: 3px;
+  background-color: #eef;
+}
+
+code {
+    padding: 1px 5px;
+}
+
+pre {
+    padding: 8px 12px;
+    overflow-x: scroll;
+
+    > code {
+        border: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+li > p {
+  margin-bottom: 0;
+  + p {
+    margin-bottom: .5em;
+  }
+}
+
+.post-link {
+  display: block;
+}
+
+.referent {
+  @include extratext;
+}
+.titel {
+  font-style: normal;
+  font-size: 140%;
+  font-family: Alegreya, serif;
+}
+
+dl {
+  > dt, > dd {
+    padding: .2em;
+  }
+  > dd {
+    display: inline-block;
+  }
+  > dt {
+    display: inline-block;
+    text-align: right;
+    font-weight: bold;
+  }
+  > dd + dt {
+    margin-left: 2em;
+  }
+}
+
+img + p {
+  margin-top: $spacing-unit / 2;
+}

@@ -1,0 +1,15 @@
+---
+title: Glaubenskurs März 2011
+ort: thomas-morus-haus
+beginn: 2011-03-18
+ende: 2011-03-20
+cover: false
+themen:
+  - titel: "Moralthelogie"
+    referent: "Kaplan Dirk Gärtner"
+  - titel: "Glaube – Kirche – Ich"
+    referent: "Pater Felix Rehbock OMI"
+  - titel: "Liturgie"
+    referent: "Kaplan Florian Böth"
+photoset_id: 72157626231958337
+---

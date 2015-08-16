@@ -1,0 +1,20 @@
+---
+layout: default
+page_type: document
+---
+<main class="page-document">
+  <aside class="info info-short">
+    {% assign find = page.glaubenskurs | prepend: "_kurse/" | append: ".adoc" %}
+    {% assign k = site.kurse | where: "relative_path", find %}
+    {% assign kurs = k.first %}
+
+    {% include event_info_short.html kurs=kurs %}
+  </aside>
+  <article>
+    <hgroup>
+      <h2 class="referent">{{ page.referent }}</h2>
+      <h1>{{ page.thema }}</h1>
+    </hgroup>
+    {{ content }}
+  </article>
+</main>

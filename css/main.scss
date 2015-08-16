@@ -1,0 +1,73 @@
+---
+sitemap:
+  exclude: true
+---
+@charset "utf-8";
+
+
+
+// Our variables
+$base-font-family: Cantarell, sans-serif;
+$brand-font-family: Dosis, sans-serif;
+$base-font-size:   16pt;
+$print-font-size:  $base-font-size * 0.7;
+$mobile-font-size:  $base-font-size * 0.7;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
+
+
+$text-color:       #442;
+$background-color: #fdfdfd;
+$brand-color:      #db9900;
+
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
+
+// Width of the content area
+$content-width:    40rem;
+$spacing-unit:     1.5rem;
+
+$on-palm:          600px;
+$on-laptop:        800px;
+
+
+* {
+  box-sizing: border-box;
+}
+
+// Using media queries with like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+  "base",
+  //"syntax-highlighting",
+  "defaults",
+  "typografy",
+  "page",
+  "lightbox",
+  "content"
+;
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   http://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  @import "print";
+}

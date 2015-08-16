@@ -1,0 +1,55 @@
+# Site settings
+title: Glaubenskurs
+email:
+description: >
+  Unsere Glaubenskurs‐Wochenenden bieten jungen Christen die Gelegenheit, mehr über den katholischen Glauben und seine Bedeutung für ihr Leben zu erfahren und sich darüber mit anderen Jugendlichen und jungen Erwachsenen auszutauschen. Natürlich kommen auch Gebet und Spiel & Spaß nicht zu kurz. Gemeinschaftsprojekt von Schönstatt MJF, OMI-Jugend, Schönstatt-Mannesjungend und Katholische Jugend im Bistum Fulda.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://glaubenskurs.bonifati.us" # the base hostname & protocol for your site
+
+permalinks: pretty
+top_nav:
+  - kurse
+
+# Page settings
+collections:
+  kurse:
+    output: true
+    permalink: /:collection/:path/
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: pages
+    values:
+      show_nav: true
+  -
+    scope:
+      path: ""
+      type: kurse
+    values:
+      cover: cover.jpg
+      layout: event
+      published: true
+
+# Build settings
+destination: /tmp/jekyll_site
+
+markdown: kramdown
+
+asciidoctor:
+  attributes:
+    - idseparator=_
+    - source-highlighter=coderay
+    - icons=font-awesome
+
+exclude:
+  - 'Rakefile'
+
+# Server settings
+port: 4000
+host: 0.0.0.0
+
+flickr:
+  api_key: '6e1fe3de2ea7c8e46c6e139b9f351e30'
+  shared_secret: 'd0975b5005bc9500'

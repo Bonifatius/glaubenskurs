@@ -1,0 +1,23 @@
+dietershausen:
+  haus: Josef-Engling-Haus
+  ort: Dietershausen
+  adresse: >
+    Schönstattzentrum Dietershausen
+    Marienhöhe 4
+    36093 Dietershausen
+
+bonifatiuskloster:
+  haus: Bonifatiuskloster
+  ort: Hünfeld
+  adresse: >
+    St. Bonifatiuskloster
+    Klosterstr. 5
+    36088 Hünfeld
+
+thomas-morus-haus:
+  haus: Thomas-Morus-Haus
+  ort: Hilders
+
+priesterseminar:
+  haus: Priesterseminar
+  ort: Fulda

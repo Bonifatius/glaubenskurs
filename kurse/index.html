@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<main class="page-index">
+
+  <h1>Glaubenskurse: Übersicht</h1>
+
+
+  <ul class="post-list">
+    {% assign kurse = site.kurse | where: "published", true | sort: 'beginn' | reverse %}
+    {% for kurs in kurse %}
+      <li class="kurs-info" itemscope>
+
+        {% include event_info.html kurs=kurs show_cover=true show_links=true %}
+
+      </li>
+    {% endfor %}
+  </ul>
+</main>

@@ -1,0 +1,12 @@
+---
+title: Glaubenskurs Juni 2016
+ort: bonifatiuskloster
+beginn: 2016-06-10
+ende: 2016-06-12
+published: false
+cover: false
+
+links:
+themen:
+
+---

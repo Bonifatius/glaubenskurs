@@ -1,0 +1,54 @@
+{% assign kurs=include.kurs %}
+{% assign ort=site.data.orte[kurs.ort] %}
+
+<meta itemprop="startDate" content="{{ kurs.beginn | date: "%F"}}" />
+<meta itemprop="endDate" content="{{ kurs.ende | date: "%F"}}" />
+
+<div class="wo-und-wann">
+  {% include event_date.html kurs=kurs %} im <span itemprop="location">{{ ort.haus }} {{ ort.ort }}</span>
+</div>
+
+{% unless include.hide_title %}
+<{% if include.title_tag %}{{ include.title_tag }}{% else %}h3{%endif%} class="kurstitel" itemprop="name">
+  {% unless include.hide_link %}<a class="post-link" href="{{ kurs.url | prepend: site.baseurl }}">{% endunless %}
+    {{ kurs.title }}
+  {% unless include.hide_link %}</a>{% endunless %}
+</{% if include.title_tag %}{{ include.title_tag }}{% else %}h3{%endif%}>
+{% endunless %}
+
+{% if include.show_cover and kurs.cover != false %}
+  {% unless include.hide_link %}<a class="post-link" href="{{ kurs.url | prepend: site.baseurl }}">{% endunless %}
+    <img src="{{kurs.url}}{{kurs.cover}}" class="cover" />
+  {% unless include.hide_link %}</a>{% endunless %}
+{% endif %}
+
+<ul class="themen">
+  {% for thema in kurs.themen %}
+    <li>
+      <strong class="referent">{{ thema.referent }}</strong>
+      <em class="titel">{{ thema.titel }}</em>
+      {% if thema.tags.size > 0 %}
+      <!--<span class="tags">
+        {% for tag in thema.tags %}
+          <span class="tag">#{{ tag }}</span>
+        {% endfor %}
+      </span>-->
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+
+{% if include.show_links %}
+<div class="links">
+  {% for link in kurs.links %}
+    <a href="{{ link.href }}">{{ link.text }}</a>
+  {% endfor %}
+  {% if kurs.photoset_id %}
+    <!--<a href="https://www.flickr.com/photos/straight-shoota/sets/{{ kurs.photoset_id }}" class="link-flickr">Bildergalerie</a>-->
+    <a href="{{ kurs.url | prepend: site.baseurl }}#bildergalerie" class="link-flickr">Bildergalerie</a>
+  {% endif %}
+  {% if kurs.facebook %}
+    <a href="https://www.facebook.com/events/{{kurs.facebook}}/" class="link-facebook">Facebook-Veranstaltung</a>
+  {% endif %}
+</div>
+{% endif %}

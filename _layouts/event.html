@@ -1,0 +1,33 @@
+---
+layout: default
+page_type: event
+---
+<main class="page-event">
+  <article class="event" itemscope itemtype="http://schema.org/Event">
+    <link href="{{ page.url }}" itemprop="url" />
+    <header>
+      {% include event_info.html kurs=page hide_link=true show_cover=true title_tag="h1" show_links=true %}
+      {% if page.published != true %}
+        <p class="unpublished_post">Zu diesem Glaubenskurs gibt es noch keine weiteren Informationen.</p>
+      {% endif %}
+    </header>
+    <main>
+      {% if page.published %}
+        {{ content }}
+      {% else %}
+        {% include mailinglist_signup.html %}
+      {% endif %}
+    </main>
+    {% if page.photoset_id %}
+    <aside id="bildergalerie">
+      <h2>Bildergalerie</h2>
+      {% flickr_gallery page.photoset_id %}
+    </aside>
+    {% endif %}
+
+    <footer class="see-also">
+      <a href="/kurse" class="btn btn-back">Alle Glaubenskurse</a>
+    </footer>
+  </article>
+</main>
+

@@ -1,0 +1,15 @@
+---
+title: Glaubenskurs August 2013
+ort: bonfatiuskloster
+beginn: 2013-08-16
+ende: 2013-08-18
+cover: false
+facebook: 1428632124019755
+themen:
+  - titel: "Trinität"
+    referent: "Pater Dirk Fey OMI"
+  - titel: "Apostelgeschichte und Urkirche"
+    referent: "Kaplan Florian Böth & Pater Jens Watteroth OMI"
+photoset_id: 72157635141237205
+---
+

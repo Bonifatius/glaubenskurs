@@ -1,0 +1,12 @@
+---
+title: Glaubenskurs Oktober 2011
+ort: bonifatiuskloster
+beginn: 2011-10-21
+ende: 2011-10-23
+cover: false
+themen:
+  - titel: "Die Kirche: Überblick über die Entwicklung des Christentums"
+    referent: "Pfarrer Gerhard Braun"
+  - titel: "Gottesbilder"
+    referent: "Kaplan Florian Böth"
+---

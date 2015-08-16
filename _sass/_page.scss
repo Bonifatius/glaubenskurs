@@ -1,0 +1,237 @@
+%content-width {
+  max-width: $content-width;
+  margin: auto;
+  padding-left: $spacing-unit/2;
+  padding-right: $spacing-unit/2;
+}
+
+body {
+  > main, > aside {
+    @extend %content-width;
+
+    &.page-index {
+      max-width: $content-width * 1.1;
+    }
+  }
+}
+
+body > header {
+  border-top: 5px solid #BBAA88;
+  border-bottom: 1px solid $grey-color-light;
+  min-height: 56px;
+
+  // Positioning context for the mobile navigation icon
+  position: relative;
+  background-image: url(/img/symbol.svg), linear-gradient(to right, #FFFBF9 0%, #FFF9F0 50%, #FFF9F0 100%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.site-header {
+  max-width: $content-width;
+  margin: auto;
+  text-align: center;
+  padding: .5em;
+  position: relative;
+}
+
+.site-title {
+  font-family: $brand-font-family;
+  font-size: 2.5em;
+  line-height: 1.1;
+  &, &:visited, &:hover {
+    color: $brand-color;
+  }
+  text-transform: uppercase;
+
+  > span {
+    padding-left: .15em;
+  }
+}
+
+.site-subtitle {
+  letter-spacing: -1px;
+  font-size: .75em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  display: block;
+  max-width: 43em;
+  margin: auto;
+}
+
+.site-footer {
+  margin-top: 3 * $spacing-unit;
+  background-color: #fcfcfA;
+  border-top: 1px solid $grey-color-light;
+  &, button {
+    font-size: .75rem;
+  }
+  text-align: center;
+  color: #886;
+  padding: $spacing-unit/2;
+
+  > .footer-main {
+    background: url(/img/symbol.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  > aside {
+    max-width: $content-width;
+    margin: $spacing-unit/2 auto;
+
+    > * {
+      margin-bottom: $spacing-unit/2;
+    }
+  }
+  + .site-footer {
+    background-image: linear-gradient(to right, #FFFBF9 0%, #FFF9F0 50%, #FFF9F0 100%);
+    margin: 0;
+  }
+}
+
+#veranstalter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: $spacing-unit/2 0;
+
+  li {
+    text-align: center;
+    display: block;
+    padding: 0 $spacing-unit/2;
+
+    a {
+      opacity: .5;
+      &:hover {
+        opacity: 1;
+      }
+      > img {
+        vertical-align: middle;
+        @include media-query($on-palm) {
+          max-width: 4em;
+        }
+      }
+    }
+  }
+}
+
+@mixin middots {
+  display: inline-block;
+  + *::before {
+    content: "\00B7";
+    padding: 0 .5em;
+  }
+}
+.footer-contact,
+.footer-links {
+  @extend .links;
+}
+.footer-contact > span {
+  @include middots;
+}
+.footer-links > a {
+  @extend %links-item;
+  font-size: 1.2em;
+}
+
+
+#site-nav {
+  font-size: 1.5em;
+  overflow-y: hidden;
+  transition: max-height .5s ease-in-out, background-color .5s cubic-bezier(0, 0.5, 0.5, 1);
+  max-height: 7em;
+  background-color: #fcfcfA;
+  border-bottom: 1px solid #eee;
+  margin-bottom: $spacing-unit;
+  margin-top: -1px;
+
+  > div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: $spacing-unit/2 0;
+    padding-top: .5em;
+    > a {
+      padding: .5em;
+    }
+    &::before {
+      display: block;
+      flex-basis: 100%;
+
+      @include extratext;
+
+      content: "navigation";
+      text-align: center;
+      font-size: .5em;
+      color: #666;
+    }
+  }
+
+  &.hidden {
+    max-height: 0;
+    background-color: $brand-color;
+    transition: max-height .5s ease-in-out, background-color .5s cubic-bezier(0.5, 0.0, 1, 0.5)
+  }
+}
+
+#navicon {
+  display: block;
+  position: absolute;
+  right: 0;
+
+  text-transform: uppercase;
+  @include extratext;
+
+  line-height: 1;
+  color: #666;
+
+  > svg {
+    width: 1em;
+    path {
+      fill: #666;
+    }
+  }
+}
+
+.icon-background {
+  fill: transparent;
+}
+.icon-foreground {
+  fill: $brand-color;
+}
+a:hover .icon-foreground {
+  fill: $text-color;
+}
+
+#subscribe-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  label {
+    width: 100%;
+  }
+  input[type=email] {
+    margin: .75rem;
+  }
+}
+
+#notificationbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: $spacing-unit;
+  background-color: rgba(255,255,255,.92);
+  transform: translateY(-100%);
+  transition: all 1s;
+  border-bottom: .2em solid $brand-color;
+
+  &.show {
+    transform: translateY(0);
+  }
+}

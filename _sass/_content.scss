@@ -1,0 +1,303 @@
+section {
+  clear: both;
+
+  @extend %clearfix;
+}
+article {
+  > main, > header, > footer {
+    @extend %clearfix;
+  }
+}
+
+.info {
+  text-align: center;
+  padding: .5em;
+
+  > dl {
+    display: inline-block;
+    background-color: #f4f4f4;
+    padding: .5em;
+  }
+}
+
+aside.info {
+  background-color: #f4f4f4;
+  padding: $spacing-unit / 2;
+  max-width: 80%;
+  margin: 1em auto;
+
+  &.info-short {
+    .kurstitel {
+      margin: 0;
+      font-weight: bold;
+    }
+  }
+}
+
+.image {
+  border-radius: .3rem;
+  .gallery & {
+    border-radius: .15rem;
+  }
+  + .image {
+    margin-top: $spacing-unit;
+  }
+}
+.images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+
+  > * + *{
+    margin-left: 1.5rem;
+  }
+}
+
+.post-list {
+  margin: 1.5rem 0;
+  list-style: none;
+
+  > li {
+    margin: 2 * $spacing-unit 0;
+  }
+}
+
+.kurs-info {
+  border: .1em solid $grey-color-light;
+  padding: .5em;
+  border-radius: 1em;
+  .kurstitel {
+    font-size: 1.6em;
+    text-align: center;
+    margin-top: .75rem;
+  }
+}
+
+img.cover {
+  display: block;
+  margin: $spacing-unit auto;
+  border-radius: .3em;
+}
+.wo-und-wann {
+  text-align: center;
+  color: #666;
+}
+.themen {
+  max-width: 38em;
+  margin: auto;
+
+  text-align: center;
+  li {
+    padding: .5em;
+    display: block;
+
+    + li {
+      border-top: .1em dotted $grey-color-light;
+    }
+
+    > * {
+      display: block;
+    }
+  }
+}
+
+.page-event {
+  max-width: initial;
+  padding: 0;
+
+  > article {
+    > * {
+      @extend %content-width;
+    }
+    padding-top: $spacing-unit;
+    > header {
+      border-bottom: .3em solid $grey-color-light;
+      margin-top: $spacing-unit;
+      margin-bottom: $spacing-unit;
+    }
+    > footer {
+      border-top: .11rem dotted $grey-color-light;
+      margin-top: $spacing-unit;
+    }
+  }
+  .kurstitel {
+    margin-top: 0;
+  }
+  .unpublished_post {
+    padding-bottom: $spacing-unit / 2;
+    text-align: center;
+  }
+}
+
+%links-item {
+  @extend .btn;
+  @include extratext($with_color: false, $with_size: false);
+
+  padding: .3em .6em;
+  margin: .5em;
+}
+.links {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: $spacing-unit 0;
+  align-items: center;
+  flex-wrap: wrap;
+  > a {
+    @extend %links-item;
+
+    &.link-icon {
+      padding: 0;
+      border: none;
+
+      .icon {
+        min-height: 2.2em;
+        min-width: 2.2em;
+      }
+    }
+  }
+}
+
+.more-list {
+  margin: $spacing-unit 0;
+
+}
+
+ul.more-list {
+  margin: $spacing-unit 0 $spacing-unit 6em;
+  font-size: .9em;
+
+  &::before {
+    content: "Mehr:";
+    float: left;
+    font-weight: bold;
+    margin-left: -5em;
+  }
+}
+
+.page-home > section {
+  + section {
+    margin-top: $spacing-unit;
+  }
+  .kurs-info {
+    border-style: none none dotted;
+  }
+}
+.upcoming {
+  border-bottom: .2rem dotted $grey-color-light;
+  padding-bottom: $spacing-unit;
+  display: flex;
+  flex-wrap: wrap;
+
+  > * {
+    flex-basis: 100%;
+  }
+  > p {
+    text-align: center;
+  }
+
+  > .wo-und-wann {
+    flex: 1 1 50%;
+
+    > span {
+      display: block;
+    }
+  }
+}
+.framed {
+  border: .3rem solid $grey-color;
+  padding: .5rem;
+  border-radius: .5rem;
+  background-color: rgb(252, 129, 10);
+  color: #ffd;
+  text-align: center;
+
+  a {
+    color: #FC6;
+  }
+  & > a {
+    // FIXME: Firefox does not apply max-width on image when wrapped with a
+    display: block;
+    max-width: 100%;
+  }
+  img.cover {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  > * + * {
+    margin-top: .5rem;
+  }
+  & > p {
+    padding-bottom: .25rem;
+  }
+}
+
+.page-index {
+  .post-list {
+    position: relative;
+    &::before {
+      position: absolute;
+      content: "";
+      display: block;
+      top: 0;
+      bottom: 0;
+      background: #F8F8F8;
+      left: 50%;
+      z-index: -1;
+      margin-left: -1.875rem;
+      width: 3.75rem;
+    }
+  }
+  .kurs-info {
+    background-color: $background-color;
+  }
+}
+
+
+
+
+#bildergalerie {
+  max-width: initial;
+  margin: $spacing-unit;
+
+  @include media-query($on-palm) {
+    margin: $spacing-unit 0;
+  }
+  h2 {
+    @extend %content-width;
+  }
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  margin: 2 * $spacing-unit;
+
+
+  @include media-query($on-palm) {
+    margin: $spacing-unit 0;
+  }
+
+  > * {
+    margin: .15rem;
+    flex-shrink: 1;
+    flex-basis: 300px;
+    @include media-query($on-palm) {
+      flex-basis: 100px;
+    }
+    flex-grow: 1;
+    max-width: 320px;
+  }
+  img {
+    //height: 213px;
+  }
+}
+
+
+
+.gsc-control-cse * {
+  box-sizing: content-box;
+}

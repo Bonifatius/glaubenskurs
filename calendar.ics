@@ -1,0 +1,23 @@
+---
+layout: null
+---
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:{{site.url}}
+X-WR-CALNAME:Glaubenskurse
+X-WR-TIMEZONE:Europe/Berlin
+X-WR-CALDESC:{{site.description | strip_newlines }}\n\nMehr Infos: {{site.url}}
+METHOD:PUBLISH{% assign kurse = site.kurse | sort: 'beginn' | reverse %}
+{% for kurs in kurse %}BEGIN:VEVENT
+UID:{{ kurs.beginn | date: "%Y-%m" }}@glaubenskurs.bonifati.us
+ORGANIZER;CN="Glaubenskurs":MAILTO:glaubenskurs@bonifati.us
+LOCATION:{% assign ort=site.data.orte[kurs.ort] %}{{ ort.haus }} {{ ort.ort }}
+SUMMARY:{{ kurs.title }}
+CLASS:PUBLIC
+DESCRIPTION:{% for thema in kurs.themen %}* {{ thema.referent }}: {{ thema.titel }}\n{% endfor %}{% if kurs.facebook %}Facebook-Veranstaltung: https://www.facebook.com/events/{{kurs.facebook}}/{% endif %}\n\nMehr Infos: {{ kurs.url | prepend: site.baseurl | prepend: site.url }}
+DTSTART;TZID=Europe/Berlin:{{ kurs.beginn | date: "%Y%m%dT180000"}}
+DTEND;TZID=Europe/Berlin:{{ kurs.ende | date: "%Y%m%dT130000"}}
+DTSTAMP:{{ site.time | date: "%Y%m%dT%M%H%S"}}
+END:VEVENT
+{% endfor %}END:VCALENDAR

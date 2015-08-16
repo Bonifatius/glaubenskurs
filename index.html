@@ -1,0 +1,60 @@
+---
+layout: default
+---
+<main class="page-home">
+
+  <section class="framed">
+    <a href="http://festdesglaubens.de/">
+      <img src="http://festdesglaubens.de/wp-content/uploads/2008/10/Cover-Website-FdG2015-940x375.jpg" class="cover" />
+    </a>
+    <p>Herzliche Einladung zum <a href="http://festdesglaubens.de/"><strong>Fest des Glaubens</strong></a> am 12. September im Schönstattzentrum Dietershausen. Es geht um die Stimme Gottes, seinen Plan für unser Leben. Als Sprachrohr Gottes kommt Weihbischof Marian Eleganti aus der Schweiz. Außerdem freuen wir uns auf die Bands JOB und Exhalation.</p>
+  </section>
+
+  {% assign upcoming = site.kurse | where: "published", false | sort: 'beginn' %}
+  {% if upcoming %}
+  <section class="upcoming">
+    <h2>Termine für die nächsten Glaubenskurse:</h2>
+    {% for kurs in upcoming %}
+      {% assign ort=site.data.orte[kurs.ort] %}
+      <div class="wo-und-wann" itemscope>
+        <meta itemprop="startDate" content="{{ kurs.beginn | date: "%F"}}" />
+        <meta itemprop="endDate" content="{{ kurs.ende | date: "%F"}}" />
+        <span ="datum">{% include event_date.html kurs=kurs %}</span>
+        <span itemprop="location">{{ ort.haus }} {{ ort.ort }}</span>
+      </div>
+    {% endfor %}
+
+    <p><a href="/calendar.ics" class="btn btn-more" title="Am besten gleich eintragen!">Kalender abonnieren</a></p>
+  </section>
+  {% endif %}
+
+  {% assign kurse = site.kurse | where: "published", true | sort: 'beginn' | reverse %}
+  <section class="aktueller-kurs">
+    <div class="kurs-info" itemscope>
+    {% include event_info.html kurs=kurse.first show_cover=true show_links=true %}
+    </div>
+
+    <a href="/kurse" class="btn btn-more">Alle Glaubenskurse</a>
+
+    <ul class="more-list">
+      {% for kurs in kurse offset:1 limit:3 %}
+        <li>
+          <a href="{{ kurs.url }}">{{ kurs.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+  <section class="about">
+    {% flickr_photo 19675018740 %}
+    <p>
+      Die Glaubenskurse sind ein gemeinsames Projekt von <a href="http://smj-fulda.org">Schönstatt-Mannesjungend Fulda</a>, SchönstattMJF Fulda, <a href="http://omi-jugend.de">OMI-Jugend</a> und <a href="http://kjf-fulda.de">Katholische Jugend im Bistum Fulda</a></span>. Sie bieten jungen Christen die Gelegenheit, mehr über den katholischen Glauben und seine Bedeutung für ihr Leben zu erfahren und sich darüber mit anderen Jugendlichen und jungen Erwachsenen auszutauschen. Natürlich kommen auch Gebet und Spiel &amp; Spaß nicht zu kurz.
+    </p>
+
+    <a href="/about" class="btn btn-more">Mehr erfahren</a>
+  </section>
+
+  {% flickr_photo 9547694359 %}
+
+  <a class="embedly-card" href="https://www.facebook.com/pages/Glaubenskurs/229818267079706?sk=info&amp;tab=page_info">Glaubenskurs bei Facebook</a>
+
+</main>

@@ -1,0 +1,36 @@
+---
+layout: page
+title: Über die Glaubenskurse
+permalink: /about/
+---
+
+Unsere Glaubenskurs‐Wochenenden bieten jungen Christen die Gelegenheit, mehr über den katholischen Glauben und seine Bedeutung für ihr Leben zu erfahren und sich darüber mit anderen Jugendlichen und jungen Erwachsenen auszutauschen. Natürlich kommen auch Gebet und Spiel & Spaß nicht zu kurz.
+
+Die Glaubenskurse sind ein Gemeinschaftsprojekt der Schönstatt Bewegung Mädchen und Junge Frauen (MJF), dem http://omi-jugend.de[Jugendbüro der Hünfelder Oblaten (OMI-Jugend)], der http://smj-fulda.org[Schönstatt-Mannesjungend im Bistum Fulda (SMJ)] und der http://kjf-fulda.de[Katholischen Jugend im Bistum Fulda (KJF)]. Begleitet und organisiert werden die Wochenenden von einem ehrenamtlichen Team aus Schönstattjugend, KJF und OMI-Jugendd zusammen mit P. Jens Watteroth OMI.
+
+Kosten:
+40 Euro für Schüler, Auszubildende, Studenten
+45 Euro für Berufstätige
+
+Anmeldung & Infos:
+Infos und Anmeldung läuft über das KJF-Büro im Bischöflichen Jugendamt, entweder per Mail an link:mailt:bja@bistum-fulda.de[bja@bistum-fulda.de] oder per Telefon 0661/87367.
+++++
+{% flickr_photo 9547690569 %}
+++++
+== Programm
+
+Die Wochenenden beginnen üblicherweise Freitags gegen 18 Uhr mit dem Abendessen. Nach Begrüßung und Vorstellrunde gibt es dann einen leichten Einstieg ins Thema. Der Tag schließt mit einem Abendgebet.
+
+Unsere Gebeszeiten sind teilweise selbst gestaltet oder entstammen dem Stundenbuch. Am Samstag wird in der Regel auch eine Heilige Messe angeboten. Der Vormittag ist mit einem Inhaltsblock gefüllt.
+
+Nach dem Mittagessen gibt es dann eine Pause, auch mit gemeinsamen Erholungsangeboten, und dann folgt die zweite Einheit. Ans Abendesssen schließt sich meist einen _Abend der Versöhnung_ an. Nach Programmende ist abends natürlich noch genug Zeit für gemütliches Beisammensein.
+
+Am Sonntag steht dann neben der Heiligen Messe noch Zeit für allgemeine Themen zu verfügung, die das Wochenende über an einer Fragewand gesammelt wurden. Nach dem Mittagessen und einer kurzen Abschlussrunde endet der Kurs dann meist gegen 13 Uhr.
+++++
+{% flickr_photo 14514238987 %}
+<div class="images">
+<div>{% flickr_photo 6806951999 %}</div>
+<div>{% flickr_photo 9547655905 %}</div>
+</div>
+++++
+
