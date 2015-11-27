@@ -180,16 +180,24 @@ button, .btn, .footer-links > a, .links > a, .footer-contact > a {
   border-radius: .3rem;
   padding: .5em; }
 
-.btn-more, .btn-back {
+.more-links,
+:not(.more-links) > .btn-more, .btn-back {
   margin: 1.5rem 0;
   min-width: 11em; }
 
-.btn-more {
+.more-links,
+:not(.more-links) > .btn-more {
   text-align: right;
   float: right; }
-  .btn-more::after {
-    content: "\203A";
-    padding-left: .3em; }
+
+.more-links > .btn-more {
+  display: block; }
+  .more-links > .btn-more + .btn-more {
+    margin-top: 0.75rem; }
+
+.btn-more::after {
+  content: "\203A";
+  padding-left: .3em; }
 
 .btn-back {
   text-align: left;
@@ -751,14 +759,15 @@ ul.more-list {
     padding-bottom: .25rem; }
 
 .page-index .post-list {
-  position: relative; }
+  position: relative;
+  background-image: linear-gradient(to right, rgba(255, 249, 240, 0), #fff9f0 50%, rgba(255, 249, 240, 0) 100%); }
   .page-index .post-list::before {
     position: absolute;
     content: "";
     display: block;
     top: 0;
     bottom: 0;
-    background: #F8F8F8;
+    background: #e8e7e6;
     left: 50%;
     z-index: -1;
     margin-left: -1.875rem;
