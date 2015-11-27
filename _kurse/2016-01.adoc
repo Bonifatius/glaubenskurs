@@ -3,10 +3,21 @@ title: Glaubenskurs Januar 2016
 ort: priesterseminar
 beginn: 2016-01-29
 ende: 2016-01-31
-published: false
-cover: false
 
 links:
 themen:
-
+  - titel: "Liturgie - Die Heilige Messe verstehen"
+    referent: "Kaplan Jürgen Kämpf"
+    tags: ["Liturgie", "Heilige Messe"]
+  - titel: "Der Islam. Theologisches und praktisches Wissen."
+    referent: "P. Günther Ecklbauer OMI"
+    tags: ["Religionen"]
 ---
+
+Unser Glaubenskurs‐Wochenende bietet die Gelegenheit, mehr über Deinen Glauben und seine Bedeutung für Dein Leben zu erfahren und Dich darüber mit anderen Jugendlichen und jungen Erwachsenen auszutauschen.
+
+Begleitet wird der gesamte Kurs von P. Jens Watteroth OMI & Team.
+
+Kosten:
+40 Euro für Schüler, Auszubildende, Studenten
+45 Euro für Berufstätige
