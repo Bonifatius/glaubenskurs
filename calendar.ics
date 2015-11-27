@@ -18,6 +18,6 @@ CLASS:PUBLIC
 DESCRIPTION:{% for thema in kurs.themen %}* {{ thema.referent }}: {{ thema.titel }}\n{% endfor %}{% if kurs.facebook %}Facebook-Veranstaltung: https://www.facebook.com/events/{{kurs.facebook}}/{% endif %}\n\nMehr Infos: {{ kurs.url | prepend: site.baseurl | prepend: site.url }}
 DTSTART;TZID=Europe/Berlin:{{ kurs.beginn | date: "%Y%m%dT180000"}}
 DTEND;TZID=Europe/Berlin:{{ kurs.ende | date: "%Y%m%dT130000"}}
-DTSTAMP:{{ site.time | date: "%Y%m%dT%M%H%S"}}
+DTSTAMP:{% if kurs.sitemap.lastmod %}{{ kurs.sitemap.lastmod | date: "%Y%m%dT%M%H%S"}}{% else %}{{ site.time | date: "%Y%m%dT%M%H%S"}}{% endif %}
 END:VEVENT
 {% endfor %}END:VCALENDAR

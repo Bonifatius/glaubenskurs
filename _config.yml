@@ -23,6 +23,8 @@ defaults:
       type: pages
     values:
       show_nav: true
+      sitemap:
+        lastmod: 2015-08-16T14:28:40+00:00
   -
     scope:
       path: ""
@@ -31,6 +33,8 @@ defaults:
       cover: cover.jpg
       layout: event
       published: true
+      sitemap:
+        lastmod: 2015-08-16T14:28:40+00:00
 
 markdown: kramdown
 
