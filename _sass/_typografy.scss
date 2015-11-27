@@ -111,17 +111,26 @@ button, .btn {
   margin: $spacing-unit 0;
   min-width: 11em;
 }
-.btn-more {
+.more-links,
+:not(.more-links) > .btn-more {
   @extend %btnrelation;
 
   text-align: right;
   float: right;
-
+}
+.more-links > .btn-more {
+  display: block;
+  + .btn-more {
+    margin-top: $spacing-unit / 2;
+  }
+}
+.btn-more {
   &::after {
     content: "\203A";
     padding-left: .3em;
   }
 }
+
 .btn-back {
   @extend %btnrelation;
 

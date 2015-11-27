@@ -237,13 +237,17 @@ ul.more-list {
 .page-index {
   .post-list {
     position: relative;
+
+    $gradient-color: #fff9f0;
+    background-image: linear-gradient(to right, fade-out($gradient-color, 1), $gradient-color 50%, fade-out($gradient-color, 1) 100%);
+
     &::before {
       position: absolute;
       content: "";
       display: block;
       top: 0;
       bottom: 0;
-      background: #F8F8F8;
+      background: mix($brand-color, #e8e8e8, .7);
       left: 50%;
       z-index: -1;
       margin-left: -1.875rem;
@@ -254,8 +258,6 @@ ul.more-list {
     background-color: $background-color;
   }
 }
-
-
 
 
 #bildergalerie {
