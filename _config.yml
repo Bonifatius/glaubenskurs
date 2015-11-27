@@ -32,9 +32,6 @@ defaults:
       layout: event
       published: true
 
-# Build settings
-destination: /tmp/jekyll_site
-
 markdown: kramdown
 
 asciidoctor:
@@ -53,3 +50,8 @@ host: 0.0.0.0
 flickr:
   api_key: '6e1fe3de2ea7c8e46c6e139b9f351e30'
   shared_secret: 'd0975b5005bc9500'
+
+# settings for deployment (Rakefile)
+git:
+  repo: git@github.com:Bonifatius/glaubenskurs.git
+  branch: gh-pages
