@@ -803,7 +803,7 @@ ul.more-list {
   box-sizing: content-box; }
 
 .algolia__result-highlight {
-  background-color: rgba(255, 230, 0, 0.3); }
+  background-color: #ffdd8f; }
 
 .searchBox {
   padding: .3em .5em; }
@@ -815,7 +815,7 @@ ul.more-list {
   color: #775; }
 
 .search {
-  font-size: 9em;
+  font-size: .9em;
   width: 100%; }
 
 #searchResults {
