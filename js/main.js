@@ -1,5 +1,5 @@
 (function() {
-  var KEY_ESCAPE,
+  var $q, $results, KEY_ESCAPE, buildSearchResult, client, index, keyupTimeout, performSearch, searchCallback,
     slice = [].slice,
     bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
@@ -488,5 +488,75 @@
   document.addEventListener("DOMContentLoaded", function() {
     return new Subscribe(document.getElementById('subscribe-form'));
   });
+
+  client = algoliasearch("E7UT30N10W", "bec4d0cb33345a4a53a3e1d72c275de0");
+
+  index = client.initIndex('glaubenskurs.bonifati.us');
+
+  $results = document.getElementById('searchResults');
+
+  searchCallback = function(err, content) {
+    if (err) {
+      console.log(err);
+      return err;
+    }
+    console.log(content.hits);
+    $results.innerHTML = '';
+    return content.hits.forEach(function(hit) {
+      return $results.appendChild(buildSearchResult(hit));
+    });
+  };
+
+  $q = document.getElementById('q');
+
+  keyupTimeout = void 0;
+
+  $q.addEventListener('keyup', function(event) {
+    var term;
+    term = $q.value;
+    if (keyupTimeout != null) {
+      clearTimeout(keyupTimeout);
+    }
+    return keyupTimeout = setTimeout(performSearch.bind({
+      term: term
+    }), 500);
+  });
+
+  performSearch = function() {
+    var term;
+    term = this.term;
+    if (term != null) {
+      if (term.length > 0) {
+        return index.search(term, searchCallback);
+      } else {
+        return $results.innerHTML = '';
+      }
+    }
+  };
+
+  buildSearchResult = function(hit) {
+    var $div, text, url;
+    url = 'http://glaubenskurs.bonifati.us' + hit.url;
+    text = hit.text;
+    if (hit._highlightResult.text != null) {
+      text = hit._highlightResult.text.value;
+    }
+    text = String(text).replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+    return $div = tag('div', {
+      "class": 'result'
+    }, [
+      tag('h3', {
+        "class": 'result__title'
+      }, tag('a', {
+        href: url
+      }, hit.title)), tag('aspan', {
+        "class": 'result__url'
+      }, tag('a', {
+        href: url
+      }, hit.url)), tag('div', {
+        "class": 'result__text'
+      }, text)
+    ]);
+  };
 
 }).call(this);

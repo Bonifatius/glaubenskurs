@@ -175,7 +175,8 @@ button, a {
     color: #442;
     text-decoration: none; }
 
-button, .btn, .footer-links > a, .links > a, .footer-contact > a {
+button, .btn, .footer-links > a, .links:not(.site-menu) > a, .footer-contact:not(.site-menu) > a,
+.footer-links:not(.site-menu) > a {
   border: .11rem solid;
   border-radius: .3rem;
   padding: .5em; }
@@ -289,7 +290,7 @@ dl > dd + dt {
 img + p {
   margin-top: 0.75rem; }
 
-body > main, body > aside, .page-event > article > *, #bildergalerie h2 {
+body > main, body > aside, #site-nav > div, .page-event > article > *, #bildergalerie h2 {
   max-width: 40rem;
   margin: auto;
   padding-left: 0.75rem;
@@ -390,7 +391,6 @@ body > header {
   font-size: 1.5em;
   overflow-y: hidden;
   transition: max-height 0.5s ease-in-out, background-color 0.5s cubic-bezier(0, 0.5, 0.5, 1);
-  max-height: 7em;
   background-color: #fcfcfA;
   border-bottom: 1px solid #eee;
   margin-bottom: 1.5rem;
@@ -399,7 +399,6 @@ body > header {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 0.75rem 0;
     padding-top: .5em; }
     #site-nav > div > a {
       padding: .5em; }
