@@ -802,6 +802,41 @@ ul.more-list {
 .gsc-control-cse * {
   box-sizing: content-box; }
 
+.algolia__result-highlight {
+  background-color: rgba(255, 230, 0, 0.3); }
+
+.searchBox {
+  padding: .3em .5em; }
+
+#q {
+  display: block;
+  width: 100%;
+  font-size: 1.5em;
+  color: #775; }
+
+.search {
+  font-size: 9em;
+  width: 100%; }
+
+#searchResults {
+  font-size: .8em; }
+
+.result {
+  padding: .3em .5em; }
+  .result + .result {
+    margin-top: .5em; }
+
+.result__title {
+  margin: 0; }
+
+.result__url {
+  font-size: .8em;
+  display: block; }
+  .result__url > a {
+    color: #aaa; }
+    .result__url > a:hover, .result__url > a:active {
+      color: #aaa; }
+
 /* ==========================================================================
    Print styles.
    Inlined to avoid the additional HTTP request:
