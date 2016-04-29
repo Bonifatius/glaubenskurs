@@ -319,21 +319,21 @@
 
   Lightbox.CryptUI = {
     askPassword: function(crypt) {
-      var error, password;
+      var error, error1, password;
       this.crypt = crypt;
       if (password = this.getCookie()) {
         try {
           this.performDecrypt(password);
           return;
-        } catch (_error) {
-          error = _error;
+        } catch (error1) {
+          error = error1;
           console.error("invalid cookie: " + password);
         }
       }
       return this.showModal();
     },
     submitForm: function(event) {
-      var error;
+      var error, error1;
       event.preventDefault();
       this.cleanModal();
       console.log(this.$input);
@@ -341,8 +341,8 @@
         this.performDecrypt(this.$input.value);
         this.setCookie(this.$input.value);
         this.$element.classList.add("success");
-      } catch (_error) {
-        error = _error;
+      } catch (error1) {
+        error = error1;
         console.error(error);
         this.$element.classList.add("error");
       }

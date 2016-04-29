@@ -7,7 +7,7 @@ gem 'rake'
 gem 'rake-jekyll', '~> 1.0'
 gem 'flickraw'
 
-gem 'nokogiri', '1.6.7.rc3' # FIXME
+gem 'nokogiri', '1.6.8.rc3' # FIXME
 
 group :jekyll_plugins do
   gem "jekyll-asciidoc"
