@@ -127,6 +127,8 @@ img.cover {
   .unpublished_post {
     padding-bottom: $spacing-unit / 2;
     text-align: center;
+    font-weight: bold;
+    color: #444;
   }
 }
 
@@ -226,6 +228,12 @@ ul.more-list {
     > span {
       display: block;
     }
+  }
+
+  > h3 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
   }
 }
 .framed {

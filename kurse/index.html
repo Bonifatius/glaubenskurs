@@ -6,6 +6,21 @@ layout: default
 
   <h1>Glaubenskurse: Übersicht</h1>
 
+  {% assign upcoming = site.kurse | where: "published", false | sort: 'beginn' %}
+  <section class="upcoming">
+    <h3>Termine für die nächsten Glaubenskurse:</h3>
+    {% for kurs in upcoming reversed %}
+      {% assign ort=site.data.orte[kurs.ort] %}
+      <div class="wo-und-wann" itemscope>
+        <meta itemprop="startDate" content="{{ kurs.beginn | date: "%F"}}" />
+        <meta itemprop="endDate" content="{{ kurs.ende | date: "%F"}}" />
+        <span ="datum">{% include event_date.html kurs=kurs %}</span>
+        <span itemprop="location">{{ ort.haus }} {{ ort.ort }}</span>
+      </div>
+    {% endfor %}
+
+    <p><a href="/calendar.ics" class="btn btn-more" title="Am besten gleich eintragen!">Kalender abonnieren</a></p>
+  </section>
 
   <ul class="post-list">
     {% assign kurse = site.kurse | where: "published", true | sort: 'beginn' | reverse %}

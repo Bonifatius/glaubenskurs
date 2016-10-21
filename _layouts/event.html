@@ -6,9 +6,10 @@ page_type: event
   <article class="event" itemscope itemtype="http://schema.org/Event">
     <link href="{{ page.url }}" itemprop="url" />
     <header>
-      {% include event_info.html kurs=page hide_link=true show_cover=true title_tag="h1" show_links=true %}
+      {% include event_info.html kurs=page hide_link=true show_cover=published title_tag="h1" show_links=true %}
       {% if page.published != true %}
-        <p class="unpublished_post">Zu diesem Glaubenskurs gibt es noch keine weiteren Informationen.</p>
+        <p class="unpublished_post">Themen und Referenten werden noch bekannt gegeben.</p>
+        <p>Unser Glaubenskurs‐Wochenende bietet die Gelegenheit, mehr über Deinen Glauben und seine Bedeutung für Dein Leben zu erfahren und Dich darüber mit anderen Jugendlichen und jungen Erwachsenen auszutauschen. Begleitet wird der gesamte Kurs von P. Jens Watteroth OMI & Team.</p>
       {% endif %}
     </header>
     <main>
@@ -40,11 +41,13 @@ page_type: event
       {% flickr_gallery page.photoset_id %}
     </aside>
     {% else %}
+      {% if page.published %}
     <aside class="anmeldung">
       <h2>Anmeldung</h2>
       <p>Zur Anmeldung einfach eine Mail mit dem Hinweis auf den Glaubenskurs, eurer Adresse und eurem Geburtsdatum an <a href="mailto:kjf@bistum-fulda.de">kjf@bistum-fulda.de</a> senden.</p>
       <p><a href="mailto:kjf@bistum-fulda.de?subject={{ page.title }}" class="btn btn-more">Anmelden</a></p>
     </aside>
+      {% endif %}
     {% endif %}
 
     <footer class="see-also">

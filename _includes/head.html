@@ -14,7 +14,7 @@
   <meta name="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   <meta property="og:site_name" content="{{ site.title }}" />
   <meta property="og:locale" content="de_DE" />
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="{% if page.beginn %}event{% else %}website{% endif %}" />
   <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
   <meta property="og:image" content="{% if page.cover %}{{ page.url | prepend: site.baseurl | prepend: site.url | append: page.cover }}{% else %}{{ '/img/cover.jpg' | prepend: site.baseurl | prepend: site.url }}{% endif %}" />
   <meta name="twitter:card" content="summary" />
