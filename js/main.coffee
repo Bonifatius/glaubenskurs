@@ -25,4 +25,4 @@ document.addEventListener "DOMContentLoaded", ->
 {% include_relative lightbox.coffee %}
 {% include_relative cryptui.coffee %}
 {% include_relative subscribe.coffee %}
-
+{% include_relative search.coffee %}

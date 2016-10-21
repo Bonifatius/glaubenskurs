@@ -9,6 +9,7 @@ sitemap:
 // Our variables
 $base-font-family: Cantarell, sans-serif;
 $brand-font-family: Dosis, sans-serif;
+$headline-font-family: Alegreya, serif;
 $base-font-size:   16pt;
 $print-font-size:  $base-font-size * 0.7;
 $mobile-font-size:  $base-font-size * 0.7;
@@ -23,6 +24,8 @@ $brand-color:      #db9900;
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
+
+$mid-brown-color: mix(darken($brand-color, 0%), #555, 20%);
 
 // Width of the content area
 $content-width:    40rem;
@@ -59,7 +62,8 @@ $on-laptop:        800px;
   "typografy",
   "page",
   "lightbox",
-  "content"
+  "content",
+  "search"
 ;
 
 /* ==========================================================================

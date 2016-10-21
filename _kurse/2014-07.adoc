@@ -8,8 +8,10 @@ facebook: 699086740137216
 themen:
   - titel: "Die Würde des menschlichen Lebens von Anfang an &ndash; und die vielen Fragen, die damit zusammen hängen."
     referent: "Paula Ketteler"
+    themen: ["Moraltheologie", "Lebensschutz", "Christsein praktisch"]
   - titel: "Welche Bedeutung hat das Alte Testament für uns als Christen?"
     referent: "Pfarrer Winfried Abel"
+    themen: ["Bibel", "Altes Testament"]
 photoset_id: 72157645799207844
 ---
 

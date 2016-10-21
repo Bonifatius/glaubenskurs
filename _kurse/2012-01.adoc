@@ -8,8 +8,10 @@ facebook: 1002613423084697
 themen:
   - titel: "Geschaffen als Mann und Frau: Welche Konsequenzen hat das? Bedeutung für die Kirche."
     referent: "Simone Twents"
+    tags: ["Theologie des Leibes", "Kirche"]
   - titel: "Maria: Die Bedeutung der Gottesmutter für unseren Glauben"
     referent: "Pfarrer Ulrich Schäfer"
+    tags: ["Maria", "Dogmatik"]
 photoset_id: 72157629143642811
 ---
 

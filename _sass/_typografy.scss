@@ -25,7 +25,7 @@ body {
 
 %extra-text {
   text-transform: uppercase;
-  font-family: Dosis, sans-serif;
+  font-family: $brand-font-family;
   font-weight: bold;
 }
 @mixin extratext($with_color: true, $with_size: true) {
@@ -54,7 +54,7 @@ h1, h2 {
   text-align: center;
   border-bottom: .2em solid $grey-color-light;
   margin-top: $spacing-unit;
-  font-family: Alegreya, serif;
+  font-family: $headline-font-family;
 }
 h1 {
   font-size: 2.4rem;
@@ -152,12 +152,16 @@ button {
   letter-spacing: .05em;
 }
 
-input[type=text], input[type=email] {
-  font-size: 1.5em;
-  padding: .3em .6em;
+input[type=text], input[type=email], input[type=search] {
+  font-family: $brand-font-family;
+  font-weight: bold;
+  font-size: 1.3em;
+  padding: .3em .4em;
   border-radius: .3em;
   border: 1px solid #eee;
+  color: $mid-brown-color;
 }
+
 form button {
   @extend %extra-text;
 }

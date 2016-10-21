@@ -47,6 +47,9 @@ asciidoctor:
 exclude:
   - 'Rakefile'
 
+gems:
+  - algoliasearch-jekyll
+
 # Server settings
 port: 4000
 host: 0.0.0.0
@@ -54,6 +57,39 @@ host: 0.0.0.0
 flickr:
   api_key: '6e1fe3de2ea7c8e46c6e139b9f351e30'
   shared_secret: 'd0975b5005bc9500'
+
+markdown_ext: adoc
+
+algolia:
+  application_id: 'E7UT30N10W'
+  index_name:     'glaubenskurs.bonifati.us'
+  excluded_files:
+    - googlebaf10e1859ea12e7.html
+    - 404.html
+    - impressum.html
+    - datenschutz.html
+  settings:
+    attributesToIndex:
+      - title
+      - themen.title
+      - themen.referent
+      - unordered(themen.tags)
+      - h1
+      - h2
+      - h3
+      - h4
+      - h5
+      - h6
+      - unordered(text)
+      - unordered(tags)
+      - ort
+    attributesForFaceting:
+      - type
+      - title
+      - themen.tags
+      - themen.referent
+      - ort
+
 
 # settings for deployment (Rakefile)
 git:

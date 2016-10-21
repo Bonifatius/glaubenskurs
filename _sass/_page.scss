@@ -134,6 +134,7 @@ body > header {
   @include middots;
 }
 .footer-links > a {
+  @extend .btn;
   @extend %links-item;
   font-size: 1.2em;
 }
@@ -143,17 +144,20 @@ body > header {
   font-size: 1.5em;
   overflow-y: hidden;
   transition: max-height .5s ease-in-out, background-color .5s cubic-bezier(0, 0.5, 0.5, 1);
-  max-height: 7em;
+  //max-height: 7em;
   background-color: #fcfcfA;
   border-bottom: 1px solid #eee;
   margin-bottom: $spacing-unit;
   margin-top: -1px;
 
   > div {
+    @extend %content-width;
+
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: $spacing-unit/2 0;
+    //margin: $spacing-unit/2 0;
+
     padding-top: .5em;
     > a {
       padding: .5em;

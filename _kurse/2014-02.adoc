@@ -8,8 +8,10 @@ facebook: 1428632124019755
 themen:
   - titel: "Der Papst und seine Bedeutung für die Kirche"
     referent: "Pater Martin Wolf OMI"
+    tags: ["Kirche", "Papst"]
   - titel: "Sterben und Tod: Unsere Verantwortung als Christen. Was muss man zu Sterbehilfe und Organspende wissen?"
     referent: "Dr. Fabian Tölle"
+    tags: ["Moraltheologie", "Lebensschutz"]
 photoset_id: 72157640788411025
 ---
 

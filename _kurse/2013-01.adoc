@@ -8,8 +8,10 @@ facebook: 296491380461565
 themen:
   - titel: "Eschatologie"
     referent: "Pater Jens Watteroth OMI"
+    tags: ["Dogmatk"]
   - titel: "Theodizee"
     referent: "Diakon Thomas Smettan"
+    tags: ["Dogmatik"]
 photoset_id: 72157632568158971
 ---
 

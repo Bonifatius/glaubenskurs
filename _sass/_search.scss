@@ -1,0 +1,44 @@
+.algolia__result-highlight {
+  background-color: lighten($brand-color, 35%);
+}
+
+.searchBox {
+  //padding: .3em .5em;
+}
+#q {
+  display: block;
+  width: 100%;
+
+  letter-spacing: .05em;
+}
+
+.search {
+  font-size: 1rem;
+  width: 100%;
+}
+
+#searchResults {
+  font-size: .8em;
+}
+
+.result {
+  padding: .3em .5em;
+
+  + .result {
+    margin-top: .5em;
+  }
+}
+.result__title {
+  margin: 0;
+}
+.result__url {
+  font-size: .8em;
+  display: block;
+  > a {
+    color: #aaa;
+    &:hover,
+    &:active {
+      color: #aaa;
+    }
+  }
+}

@@ -8,8 +8,10 @@ facebook: 234158320036898
 themen:
   - titel: "Das Zweite Vatikanum: Was ist ein Konzil und was ist am letzten Konzil geschehen?"
     referent: "Kaplan Dirk Gärtner"
+    tags: ["Kirchengeschichte"]
   - titel: "Der Heilige Geist: Wie kann ich ihn mir vorstellen? Wie sein Wirken erkennen?"
     referent: "Pater Thomas Jocheim ISch"
+    tags: ["Dogmatik"]
 ---
 
 Die Schönstatt Bewegung Mädchen und Junge Frauen (MJF), die Schönstatt-Mannesjugend (SMJ), das Jugendbüro der Hünfelder Oblaten (OMI) und die Katholische Jugend im Bistum Fulda (KJF) bieten vom 17.-19. August 2012das vierte Glaubenswochenende für Jugendliche ab 16 Jahren an. Eingeladen sind alle, die sich tiefer mit ihrem Glauben auseinandersetzen wollen, die mehr wissen und verstehen und mit Gleichaltrigen darüber ins Gespräch kommen möchten. Natürlich kommen auch Gebet und Spiel & Spaß nicht zu kurz!

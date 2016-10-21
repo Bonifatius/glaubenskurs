@@ -16,8 +16,15 @@
 
 <nav id="site-nav" class="{% unless include.show_nav %} hidden{% endunless %}">
   <div>
+    <a href="{{ site.baseurl }}">Startseite</a>
     <a href="{{ site.baseurl }}/about">Info</a>
-    <a href="{{ site.baseurl }}/kurse">Übersicht</a>
+    <a href="{{ site.baseurl }}/kurse">Kursübersicht</a>
+    <div class="search">
+      <div class="searchBox">
+        <input type="search" id="q" name="q" placeholder="Suchen..." autocomplete="off" spellcheck="off" autocorrect="off" />
+      </div>
+      <div id="searchResults"></div>
+    </div>
   </div>
 </nav>
 

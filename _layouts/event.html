@@ -18,10 +18,32 @@ page_type: event
         {% include mailinglist_signup.html %}
       {% endif %}
     </main>
+
+    {% assign has_tags = false %}
+    {% for thema in page.themen %}
+      {% if thema.tags.size > 0 %}{% assign has_tags = true %}{% endif %}
+    {% endfor %}
+
+    {% if has_tags %}
+    <aside class="tags">
+    {% for thema in page.themen %}
+      {% if thema.tags.size > 0 %}{% for tag in thema.tags %}
+          <span class="tag">#{{ tag }}</span>
+        {% endfor %}{% endif %}
+    {% endfor %}
+    </aside>
+    {% endif %}
+
     {% if page.photoset_id %}
     <aside id="bildergalerie">
       <h2>Bildergalerie</h2>
       {% flickr_gallery page.photoset_id %}
+    </aside>
+    {% else %}
+    <aside class="anmeldung">
+      <h2>Anmeldung</h2>
+      <p>Zur Anmeldung einfach eine Mail mit dem Hinweis auf den Glaubenskurs, eurer Adresse und eurem Geburtsdatum an <a href="mailto:kjf@bistum-fulda.de">kjf@bistum-fulda.de</a> senden.</p>
+      <p><a href="mailto:kjf@bistum-fulda.de?subject={{ page.title }}" class="btn btn-more">Anmelden</a></p>
     </aside>
     {% endif %}
 

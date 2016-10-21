@@ -11,7 +11,7 @@ layout: default
   </section>-->
 
   {% assign upcoming = site.kurse | where: "published", false | sort: 'beginn' %}
-  {% if false %}
+  {% if !false %}
   <section class="upcoming">
     <h2>Termine für die nächsten Glaubenskurse:</h2>
     {% for kurs in upcoming reversed %}

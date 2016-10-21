@@ -3,10 +3,30 @@ title: Glaubenskurs Juni 2016
 ort: bonifatiuskloster
 beginn: 2016-06-10
 ende: 2016-06-12
-published: false
-cover: false
 
 links:
 themen:
-
+  - titel: "Ostkirchen - Unterschiedliche Konfessionen und doch derselbe Glaube?"
+    referent: "P. Michael Schneider SJ"
+    tags: ["Kirche", "Christentum"]
+  - titel: "Offenbarung des Johannes"
+    referent: "Sr. Margareta Gruber OFM"
+    tags: ["Bibel", "Neues Testament"]
 ---
+
+Unser Glaubenskurs‐Wochenende bietet die Gelegenheit, mehr über Deinen Glauben und seine Bedeutung für Dein Leben zu erfahren und Dich darüber mit anderen Jugendlichen und jungen Erwachsenen auszutauschen.
+
+Mit zwei interessanten Themen beschäftigen wir uns auch diesmal. P. Michael Schneider SJ bringt uns an diesem Wochenende
+die Ostkirchen näher. Unterschiedliche Konfessionen und doch derselbe Glaube? Unterschiede und Gemeinsamkeiten werden
+wir näher beleuchten. Im zweiten Thema wird es biblisch. Sr. Margareta Gruber OFM wird mit uns einen Blick in eines der
+biblischen Bücher, das wohl am schwersten zu verstehen ist: die Offenbarung des Johannes.
+
+Begleitet wird der gesamte Kurs von P. Jens Watteroth OMI & Team.
+
+Neben den beiden Themen, die für euch vorbereitet werden, werdet ihr Gelegenheit haben, alle anderen
+Fragen loszuwerden. Natürlich kommen auch Gebet und Gemeinschaft, Spiel und Spaß nicht zu kurz.
+
+
+Kosten:
+40 Euro für Schüler, Auszubildende, Studenten
+45 Euro für Berufstätige

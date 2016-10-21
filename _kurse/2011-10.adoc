@@ -7,6 +7,9 @@ cover: false
 themen:
   - titel: "Die Kirche: Überblick über die Entwicklung des Christentums"
     referent: "Pfarrer Gerhard Braun"
+    tags: ["Kirchengeschichte", "Kirche", "Religionen"]
   - titel: "Gottesbilder"
     referent: "Kaplan Florian Böth"
+    tags: ["Dogmatik", "Philosophie"]
 ---
+Beim zweiten gemeinsamen Glaubenskurs waren wir zum ersten mal im Bonifatiuskloster Hünfeld.

@@ -9,9 +9,10 @@ links:
 themen:
   - titel: "Was ist Mission und wie geht das überhaupt? Hintergründe und selbst praktisch aktiv sein."
     referent: "P. Paulus M. Tautz CFR"
-    tags: ["Neuevangelisierung", "Mission"]
+    tags: ["Neuevangelisierung", "Mission", "Christsein praktisch"]
 
 photoset_id: 72157655704222149
+
 ---
 
 Unser Glaubenskurs‐Wochenende bietet die Gelegenheit, mehr über Deinen Glauben und seine Bedeutung für Dein Leben zu erfahren und Dich darüber mit anderen Jugendlichen und jungen Erwachsenen auszutauschen.

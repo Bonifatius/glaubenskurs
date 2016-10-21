@@ -7,9 +7,13 @@ cover: false
 themen:
   - titel: "Moralthelogie"
     referent: "Kaplan Dirk Gärtner"
+    tags: ["Moraltheologie"]
   - titel: "Glaube – Kirche – Ich"
     referent: "Pater Felix Rehbock OMI"
+    tags: ["Christsein praktisch", "Kirche", "Glaube"]
   - titel: "Liturgie"
     referent: "Kaplan Florian Böth"
+    tags: ["Liturgie"]
 photoset_id: 72157626231958337
 ---
+Der erste gemeinsame Glaubenskurs fand im März 2011 statt.

@@ -30,7 +30,7 @@ end
 task :serve do
   Rake::Task[:build].invoke unless File.exists?("#{dest_dir}/index.html")
 
-  system "jekyll serve --destination #{dest_dir} &"
+  system "jekyll serve --destination #{dest_dir}"
 end
 
 task :deploy do

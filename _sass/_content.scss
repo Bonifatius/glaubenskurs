@@ -131,7 +131,6 @@ img.cover {
 }
 
 %links-item {
-  @extend .btn;
   @include extratext($with_color: false, $with_size: false);
 
   padding: .3em .6em;
@@ -144,6 +143,10 @@ img.cover {
   margin: $spacing-unit 0;
   align-items: center;
   flex-wrap: wrap;
+
+  &:not(.site-menu) > a {
+    @extend .btn;
+  }
   > a {
     @extend %links-item;
 
@@ -156,6 +159,26 @@ img.cover {
         min-width: 2.2em;
       }
     }
+  }
+
+  &.site-menu {
+    > a:link,
+    > a:visited {
+      color: $mid-brown-color;
+
+      .icon-foreground {
+        fill: $mid-brown-color;
+      }
+    }
+
+    > a:hover,
+    > a:focus {
+      color: #442;
+      .icon-foreground {
+        fill: #442;
+      }
+    }
+
   }
 }
 

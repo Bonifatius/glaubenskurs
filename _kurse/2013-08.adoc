@@ -8,8 +8,11 @@ facebook: 1428632124019755
 themen:
   - titel: "Trinität"
     referent: "Pater Dirk Fey OMI"
+    tags: ["Dogmatik"]
   - titel: "Apostelgeschichte und Urkirche"
     referent: "Kaplan Florian Böth & Pater Jens Watteroth OMI"
+    tags: ["Kirchengeschichte", "Bibel", "Apostel", "Kirche"]
 photoset_id: 72157635141237205
 ---
 
+Bei sechsten Glaubenskurs ging es um die Themen Trinität und Apostelgeschichte.

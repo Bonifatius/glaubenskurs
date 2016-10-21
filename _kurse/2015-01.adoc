@@ -7,7 +7,7 @@ facebook: 1524443367825743
 themen:
   - titel: "Das Sakrament der Ehe. Blickwinkel der Kirche und Impulse für eine gelingende Partnerschaft."
     referent: "Ramona & Benjamin Brähler"
-    tags: ["Theologie des Leibes", "Sakramente"]
+    tags: ["Theologie des Leibes", "Sakramente", "Christsein praktisch"]
   - titel: "Überblick über das Alte Testement: Wer ist Wer? Welche Texte sind wichtig? Wie lese ich die Bibel richtig?"
     referent: "Pfarrer Gerhard Braun"
     tags: ["Altes Testament", "Bibel"]
