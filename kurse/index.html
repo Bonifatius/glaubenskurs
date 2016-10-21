@@ -9,7 +9,7 @@ layout: default
   {% assign upcoming = site.kurse | where: "published", false | sort: 'beginn' %}
   <section class="upcoming">
     <h3>Termine für die nächsten Glaubenskurse:</h3>
-    {% for kurs in upcoming reversed %}
+    {% for kurs in upcoming %}
       {% assign ort=site.data.orte[kurs.ort] %}
       <div class="wo-und-wann" itemscope>
         <meta itemprop="startDate" content="{{ kurs.beginn | date: "%F"}}" />
