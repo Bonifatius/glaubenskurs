@@ -7,16 +7,18 @@ title: Kursübersicht
 
   <h1>Glaubenskurse: Übersicht</h1>
 
-  {% assign upcoming = site.kurse | where: "published", false | sort: 'beginn' %}
+  {% assign upcoming = site.kurse | where: "upcoming", true | sort: 'beginn' %}
   <section class="upcoming">
-    <h3>Termine für die nächsten Glaubenskurse:</h3>
+    <h3>Termine der nächsten Glaubenskurse:</h3>
     {% for kurs in upcoming %}
       {% assign ort=site.data.orte[kurs.ort] %}
       <div class="wo-und-wann" itemscope>
         <meta itemprop="startDate" content="{{ kurs.beginn | date: "%F"}}" />
         <meta itemprop="endDate" content="{{ kurs.ende | date: "%F"}}" />
-        <span ="datum">{% include event_date.html kurs=kurs %}</span>
-        <span itemprop="location">{{ ort.haus }} {{ ort.ort }}</span>
+        {% if kurs.published %}<a class="post-link" href="{{ kurs.url | prepend: site.baseurl }}">{% endif %}
+        <span class="datum" itemprop="datum">{% include event_date.html kurs=kurs %}</span>
+        <span class="ort" itemprop="location">{{ ort.haus }} {{ ort.ort }}</span>
+        {% if kurs.published %}</a>{% endif %}
       </div>
     {% endfor %}
 

@@ -3,6 +3,7 @@ title: Glaubenskurs Januar 2017
 ort: bonifatiuskloster
 beginn: 2017-01-13
 ende: 2017-01-15
+upcoming: true
 
 links:
 themen:

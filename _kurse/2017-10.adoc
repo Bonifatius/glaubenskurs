@@ -3,7 +3,7 @@ title: Glaubenskurs Oktober 2017
 ort: dietershausen
 beginn: 2017-10-06
 ende: 2017-10-08
-published: false
+upcoming: true
 
 links:
 themen:

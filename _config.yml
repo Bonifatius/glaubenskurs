@@ -33,6 +33,7 @@ defaults:
       cover: cover.jpg
       layout: event
       published: true
+      upcoming: false
       sitemap:
         lastmod: 2015-08-16T14:28:40+00:00
 

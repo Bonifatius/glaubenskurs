@@ -225,7 +225,7 @@ ul.more-list {
   > .wo-und-wann {
     flex: 1 1 50%;
 
-    > span {
+    .datum, .ort {
       display: block;
     }
   }
