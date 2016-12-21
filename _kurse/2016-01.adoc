@@ -12,6 +12,9 @@ themen:
   - titel: "Der Islam. Theologisches und praktisches Wissen."
     referent: "P. Günther Ecklbauer OMI"
     tags: ["Religionen"]
+
+photset_id: 72157674301880653
+
 ---
 
 Unser Glaubenskurs‐Wochenende bietet die Gelegenheit, mehr über Deinen Glauben und seine Bedeutung für Dein Leben zu erfahren und Dich darüber mit anderen Jugendlichen und jungen Erwachsenen auszutauschen.

@@ -3,15 +3,21 @@ title: Glaubenskurs Januar 2017
 ort: bonifatiuskloster
 beginn: 2017-01-13
 ende: 2017-01-15
-published: false
 
 links:
 themen:
+  - titel: "DoCat - Katholische Soziallehre für mich erklärt"
+    referent: "Sebastian Bieber"
+    tags: ["Soziallehre", "DoCat"]
+  - titel: "Die Paulusbriefe - Antike Post mit wichtiger Botschaft"
+    referent: "P. Jens Watteroth OMI"
+    tags: ["Bibel", "Neues Testament", "Paulus"]
+
+facebook: 1769638596619830
+
 ---
 
 Unser Glaubenskurs‐Wochenende bietet die Gelegenheit, mehr über Deinen Glauben und seine Bedeutung für Dein Leben zu erfahren und Dich darüber mit anderen Jugendlichen und jungen Erwachsenen auszutauschen.
-
-Themen und Referenten werden noch bekannt gegeben.
 
 Begleitet wird der gesamte Kurs von P. Jens Watteroth OMI & Team.
 

@@ -20,6 +20,7 @@ task :clean do
 end
 
 task :initialize_dest do
+  # git_repo points to github.com because git_branch (gh-pages) might not be available in local working clone
   system "git clone --verbose --branch #{git_branch} --single-branch #{git_repo} #{dest_dir}"
 end
 

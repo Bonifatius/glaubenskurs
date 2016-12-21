@@ -6,14 +6,14 @@ page_type: event
   <article class="event" itemscope itemtype="http://schema.org/Event">
     <link href="{{ page.url }}" itemprop="url" />
     <header>
-      {% include event_info.html kurs=page hide_link=true show_cover=published title_tag="h1" show_links=true %}
-      {% if page.published != true %}
+      {% include event_info.html kurs=page hide_link=true show_cover=page.published title_tag="h1" show_links=true %}
+      {% unless page.themen and page.themen.size and page.themen.size > 0 %}
         <p class="unpublished_post">Themen und Referenten werden noch bekannt gegeben.</p>
-        <p>Unser Glaubenskurs‐Wochenende bietet die Gelegenheit, mehr über Deinen Glauben und seine Bedeutung für Dein Leben zu erfahren und Dich darüber mit anderen Jugendlichen und jungen Erwachsenen auszutauschen. Begleitet wird der gesamte Kurs von P. Jens Watteroth OMI & Team.</p>
-      {% endif %}
+        <p>Unser Glaubenskurs‐Wochenende bietet die Gelegenheit, mehr über Deinen Glauben und seine Bedeutung für Dein Leben zu erfahren und Dich darüber mit anderen Jugendlichen und jungen Erwachsenen auszutauschen. Begleitet wird der gesamte Kurs von P. Jens Watteroth OMI &amp; Team.</p>
+      {% endunless %}
     </header>
     <main>
-      {% if page.published %}
+      {% if page.themen and page.themen.size and page.themen.size > 0 %}
         {{ content }}
       {% else %}
         {% include mailinglist_signup.html %}

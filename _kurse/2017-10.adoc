@@ -7,11 +7,15 @@ published: false
 
 links:
 themen:
+  - titel: "Ökumene - Reformation und trotzdem sind wir alle Christen"
+    referent: "Dr. Martn Stanke"
+    tags: ["Kirche", "Reformation", "Ökumene", "Protestantismus"]
+  - titel: "Jesus Christus - Sohn Gottes: Weg. Wahrheit. Leben."
+    referent: "Florian Böth"
+    tags: ["Jesus", "Dogmatik"]
 ---
 
 Unser Glaubenskurs‐Wochenende bietet die Gelegenheit, mehr über Deinen Glauben und seine Bedeutung für Dein Leben zu erfahren und Dich darüber mit anderen Jugendlichen und jungen Erwachsenen auszutauschen.
-
-Themen und Referenten werden noch bekannt gegeben.
 
 Begleitet wird der gesamte Kurs von P. Jens Watteroth OMI & Team.
 
