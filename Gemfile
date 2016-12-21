@@ -11,5 +11,4 @@ gem 'flickraw'
 
 group :jekyll_plugins do
   gem "jekyll-asciidoc"
-  gem 'algoliasearch-jekyll', '~> 0.5.3'
-end
+  gem '

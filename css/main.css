@@ -763,7 +763,7 @@ ul.more-list {
     text-align: center; }
   .upcoming > .wo-und-wann {
     flex: 1 1 50%; }
-    .upcoming > .wo-und-wann > span {
+    .upcoming > .wo-und-wann .datum, .upcoming > .wo-und-wann .ort {
       display: block; }
   .upcoming > h3 {
     text-align: center;

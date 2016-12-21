@@ -319,7 +319,7 @@
 
   Lightbox.CryptUI = {
     askPassword: function(crypt) {
-      var error, error1, password;
+      var error, password;
       this.crypt = crypt;
       if (password = this.getCookie()) {
         try {
@@ -333,7 +333,7 @@
       return this.showModal();
     },
     submitForm: function(event) {
-      var error, error1;
+      var error;
       event.preventDefault();
       this.cleanModal();
       console.log(this.$input);
