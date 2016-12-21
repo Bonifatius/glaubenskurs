@@ -101,9 +101,8 @@ DEPENDENCIES
   flickraw
   jekyll (~> 2.5)
   jekyll-asciidoc
-  nokogiri (= 1.6.8.rc3)
   rake
   rake-jekyll (~> 1.0)
 
 BUNDLED WITH
-   1.11.2
+   1.13.6
