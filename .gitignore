@@ -1,3 +1,4 @@
 _site
 .sass-cache
 _config_secret.yml
+_cache/

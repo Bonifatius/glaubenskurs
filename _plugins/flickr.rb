@@ -1,4 +1,8 @@
 require 'flickraw'
+require 'json'
+
+FLICKR_CACHE_DIR = File.expand_path('../../_cache/flickr', __FILE__)
+FileUtils.mkdir_p(FLICKR_CACHE_DIR)
 
 module Jekyll
   module Flickr
@@ -10,6 +14,7 @@ module Jekyll
     def self.config
       @config ||= Jekyll.configuration({})['flickr'] || {}
     end
+
 
     class APIWrapper
       def []=(key)
@@ -26,6 +31,49 @@ module Jekyll
 
       def respond_to_missing?(method_sym, include_private = false)
         data.key?(method_sym.to_s) || super
+      end
+
+      def client
+        @client ||= APIClient.new
+      end
+    end
+
+    class APIClient
+      def getPhotoInfo photo_id
+        cache('photo', photo_id) do
+          flickr.photos.getInfo photo_id: photo_id
+        end
+      end
+
+      def getPhotosetInfo photoset_id
+        cache('album', photoset_id) do
+          flickr.photosets.getInfo photoset_id: photoset_id
+        end
+      end
+
+      def getPhotos photoset_id
+        cache('photos', photoset_id) do
+          flickr.photosets.getPhotos photoset_id: photoset_id
+        end
+      end
+
+      def cache(type, id)
+        if defined?(FLICKR_CACHE_DIR)
+          path = File.join(FLICKR_CACHE_DIR, "#{type}_#{id}.yml")
+          if File.exists?(path)
+            data = YAML::load(File.read(path))
+          else
+            puts "Retrieving data from API for #{type} #{id}..."
+            data = yield
+            File.open(path, "w") do |f|
+              f.write(YAML::dump(data))
+            end
+          end
+        else
+          data = yield
+        end
+
+        return data
       end
     end
 
@@ -44,15 +92,11 @@ module Jekyll
       end
 
       def data
-        @data ||= flickr.photos.getInfo photo_id: photo_id
+        @data ||= client.getPhotoInfo photo_id
       end
 
       def url(size = :medium)
         size = PHOTO_SIZES[size] if PHOTO_SIZES.key? size
-
-        #"https://farm9.staticflickr.com/8818/17568029892_5579d6c7c5_h_d.jpg"
-        #"https://farm9.staticflickr.com/8818/17568029892_5579d6c7c5_h_d.jpg"
-        #"https://farm9.staticflickr.com/8818/17568029892_6394c9e62f_h_d.jpg" #origin
 
         "https://farm#{farm}.staticflickr.com/#{server}/#{id}_#{secret}_#{size}.jpg"
       end
@@ -67,13 +111,12 @@ module Jekyll
       end
 
       def data
-        @data ||= flickr.photosets.getInfo photoset_id: photoset_id
+        @data ||= client.getPhotosetInfo photoset_id
       end
 
       def photos
         @photos ||= begin
-            puts "loading photoset_id=#{photoset_id}"
-            raw = flickr.photosets.getPhotos photoset_id: photoset_id
+            raw = client.getPhotos photoset_id
             raw['photo'].lazy.map do | photo_raw |
               Photo.new photo_raw
             end
@@ -99,6 +142,7 @@ module Jekyll
         if @photo_id =~ /([\w]+\.[\w]+)/i
           @photo_id = lookup_variable(context, set_id)
         end
+
         @photo = Jekyll::Flickr::Photo.new @photo_id.strip
 
         %Q[<img alt="#{photo.title}" src="#{photo.url :large}" class="image image-flickr image-large" />]
@@ -119,11 +163,12 @@ module Jekyll
       end
 
       def render(context)
-        puts "rendering photoset with set_id=#{set_id}"
         if set_id =~ /([\w]+\.[\w]+)/i
           @set_id = lookup_variable(context, set_id)
         end
+
         @set = Jekyll::Flickr::PhotoSet.new set_id
+        puts "loaded album ##{set_id} #{set.title} with #{set.photos.count} photos"
 
         html = '<div class="gallery">'
         set.photos.each do | photo |
