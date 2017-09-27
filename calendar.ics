@@ -7,6 +7,28 @@ X-WR-TIMEZONE:Europe/Berlin
 X-WR-CALDESC:Unsere Glaubenskurs‐Wochenenden bieten jungen Christen die Gelegenheit, mehr über den katholischen Glauben und seine Bedeutung für ihr Leben zu erfahren und sich darüber mit anderen Jugendlichen und jungen Erwachsenen auszutauschen. Natürlich kommen auch Gebet und Spiel & Spaß nicht zu kurz. Gemeinschaftsprojekt von Schönstatt MJF, OMI-Jugend, Schönstatt-Mannesjungend und Katholische Jugend im Bistum Fulda.\n\nMehr Infos: http://glaubenskurs.bonifati.us
 METHOD:PUBLISH
 BEGIN:VEVENT
+UID:2018-08@glaubenskurs.bonifati.us
+ORGANIZER;CN="Glaubenskurs":MAILTO:glaubenskurs@bonifati.us
+LOCATION:Bonifatiuskloster Hünfeld
+SUMMARY:Glaubenskurs August 2018
+CLASS:PUBLIC
+DESCRIPTION:\n\nMehr Infos: http://glaubenskurs.bonifati.us/kurse/2018-08/
+DTSTART;TZID=Europe/Berlin:20180803T180000
+DTEND;TZID=Europe/Berlin:20170805T130000
+DTSTAMP:20150816T281440
+END:VEVENT
+BEGIN:VEVENT
+UID:2018-02@glaubenskurs.bonifati.us
+ORGANIZER;CN="Glaubenskurs":MAILTO:glaubenskurs@bonifati.us
+LOCATION:Priesterseminar Fulda
+SUMMARY:Glaubenskurs Februar 2018
+CLASS:PUBLIC
+DESCRIPTION:\n\nMehr Infos: http://glaubenskurs.bonifati.us/kurse/2018-02/
+DTSTART;TZID=Europe/Berlin:20180202T180000
+DTEND;TZID=Europe/Berlin:20180204T130000
+DTSTAMP:20150816T281440
+END:VEVENT
+BEGIN:VEVENT
 UID:2017-10@glaubenskurs.bonifati.us
 ORGANIZER;CN="Glaubenskurs":MAILTO:glaubenskurs@bonifati.us
 LOCATION:Josef-Engling-Haus Dietershausen
