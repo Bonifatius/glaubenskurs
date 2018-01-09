@@ -1,17 +1,12 @@
 ---
-title: Glaubenskurs Oktober 2017
-ort: dietershausen
-beginn: 2017-10-06
-ende: 2017-10-08
+title: Glaubenskurs August 2018
+ort: bonifatiuskloster
+beginn: 2018-08-03
+ende: 2017-08-05
+upcoming: true
 
 links:
 themen:
-  - titel: "Ökumene - Reformation und trotzdem sind wir alle Christen"
-    referent: "Dr. Martn Stanke"
-    tags: ["Kirche", "Reformation", "Ökumene", "Protestantismus"]
-  - titel: "Jesus Christus - Sohn Gottes: Weg. Wahrheit. Leben."
-    referent: "Florian Böth"
-    tags: ["Jesus", "Dogmatik"]
 ---
 
 Unser Glaubenskurs‐Wochenende bietet die Gelegenheit, mehr über Deinen Glauben und seine Bedeutung für Dein Leben zu erfahren und Dich darüber mit anderen Jugendlichen und jungen Erwachsenen auszutauschen.
